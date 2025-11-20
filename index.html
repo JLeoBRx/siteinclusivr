@@ -1,30 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>InclusiVR - Tecnologia Imersiva para Ensino de LIBRAS</title>
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fontes e Lottie -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- Seu CSS externo (não alterado) -->
     <link rel="stylesheet" href="style.css">
 
+    <meta name="description" content="InclusiVR — soluções em AR/VR para ensino de LIBRAS. Livro interativo, cartas táteis e jogos imersivos." />
 </head>
 <body class="bg-purple-50">
+
     <!-- Header/Navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="text-3xl font-bold text-purple-600 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <a href="#home" class="flex items-center text-3xl font-bold text-purple-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v8l4-2 4 2V6z" clip-rule="evenodd" />
                     </svg>
                     Inclusi<span class="text-indigo-600">VR</span>
-                </div>
+                </a>
             </div>
-            
-            <div class="hidden md:flex space-x-8">
+
+            <div class="hidden md:flex space-x-8 items-center">
                 <a href="#home" class="nav-link text-gray-700 hover:text-purple-600 font-semibold">Início</a>
                 <a href="#produtos" class="nav-link text-gray-700 hover:text-purple-600 font-semibold">Produtos</a>
                 <a href="#quem-somos" class="nav-link text-gray-700 hover:text-purple-600 font-semibold">Quem Somos</a>
@@ -33,18 +40,19 @@
                 <a href="#newsletter" class="nav-link text-gray-700 hover:text-purple-600 font-semibold">Newsletter</a>
                 <a href="#contato" class="nav-link text-gray-700 hover:text-purple-600 font-semibold">Contato</a>
             </div>
-            
+
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <button id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu" class="text-gray-700 hover:text-purple-600 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
+                    <span class="sr-only">Abrir menu</span>
                 </button>
             </div>
         </nav>
-        
+
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full left-0">
             <div class="flex flex-col space-y-4 px-4 py-6">
                 <a href="#home" class="text-gray-700 hover:text-purple-600 font-semibold">Início</a>
                 <a href="#produtos" class="text-gray-700 hover:text-purple-600 font-semibold">Produtos</a>
@@ -58,43 +66,39 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100">
-        <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0 z-10">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-                    Coletânea <span class="text-purple-600">LIBROS</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-                    Livros com realidade aumentada para ensinar LIBRAS.<br>
-                    <span class="font-bold italic">Descubra um universo mágico onde a língua de sinais é a palavra de poder!</span>
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#produtos" class="px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-700 transition duration-300 shadow-lg hover:shadow-xl">
-                        Conheça nossos produtos
-                    </a>
-                    <a href="#produtos" class="px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg border-2 border-purple-600 hover:bg-purple-100 transition duration-300">
-                        Experimente
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2 relative z-10">
-                <div class="relative">
-                    <div class="animate-float">
-                        <svg class="absolute -top-20 -right-20 text-purple-300 opacity-50 w-40 h-40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="currentColor" d="M45.3,-59.1C58.9,-51.1,70.3,-37.8,76.2,-22.2C82.1,-6.5,82.6,11.5,76.3,26.8C70,42.1,57,54.6,42.2,62.4C27.4,70.2,10.8,73.2,-5.2,79.5C-21.2,85.8,-36.6,95.4,-51.2,92.9C-65.8,90.4,-79.5,75.8,-85.6,58.9C-91.7,42,-90.2,22.8,-85.6,6.3C-81,-10.2,-73.3,-23.9,-64.1,-35.6C-54.9,-47.3,-44.2,-57,-32.1,-64.1C-20,-71.2,-6.6,-75.7,6.9,-84.1C20.4,-92.5,40.8,-104.8,52.2,-98.8C63.6,-92.8,66,-67.5,45.3,-59.1Z" transform="translate(100 100)" />
-                        </svg>
+    <main>
+        <section id="home" class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100">
+            <div class="container mx-auto px-4 py-20 md:py-32 flex flex-col md:flex-row items-center">
+                <!-- Left: copy -->
+                <div class="md:w-1/2 mb-10 md:mb-0 z-10 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                        Inclusi <span class="text-purple-600">VR</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+                        Conectando mundos por meio das línguas de sinais e tecnologia.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#produtos" class="px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-700 transition duration-300 shadow-lg">
+                            Conheça nossos produtos
+                        </a>
+                        <a href="#loja" class="px-8 py-4 bg-white text-purple-600 rounded-full font-bold text-lg border-2 border-purple-600 hover:bg-purple-100 transition duration-300">
+                            Comprar agora!
+                        </a>
                     </div>
-                    
+                </div>
+
+                <!-- Right: illustration / book -->
+                <div class="md:w-1/2 relative z-10">
                     <div class="relative flex justify-center">
                         <!-- Book Cover -->
-                        <div class="w-64 h-80 bg-white rounded-lg shadow-2xl transform -rotate-6 absolute left-10 top-10">
+                        <div class="w-64 h-80 bg-white rounded-lg shadow-2xl transform -rotate-6 absolute left-8 top-8">
                             <div class="w-full h-full bg-purple-600 rounded-lg p-4 flex flex-col justify-between">
                                 <div>
                                     <h3 class="text-white text-2xl font-bold">SinalizaAção</h3>
                                     <p class="text-purple-200 text-lg">Animais em Voga</p>
                                 </div>
                                 <div class="flex justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                     </svg>
                                 </div>
@@ -103,42 +107,40 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Open Book -->
                         <div class="w-96 h-64 bg-white rounded-lg shadow-2xl transform rotate-6 mt-20 ml-20 flex">
                             <!-- Left Page -->
-                            <div class="w-1/2 h-full bg-purple-50 rounded-l-lg p-3">
-                                <div class="h-full flex flex-col justify-between">
+                            <div class="w-1/2 h-full bg-purple-50 rounded-l-lg p-3 flex flex-col justify-between">
+                                <div>
                                     <h4 class="text-purple-800 text-lg font-bold">Girafa</h4>
-                                    <div class="flex justify-center items-center h-32">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <p class="text-xs text-gray-600">Página 12</p>
                                 </div>
+                                <div class="flex justify-center items-center h-32">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <p class="text-xs text-gray-600">Página 12</p>
                             </div>
-                            
+
                             <!-- Right Page -->
-                            <div class="w-1/2 h-full bg-purple-50 rounded-r-lg p-3">
-                                <div class="h-full flex flex-col justify-between">
-                                    <div class="flex justify-end">
-                                        <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-center items-center h-32">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-yellow-800" viewBox="0 0 20 20" fill="currentColor">
-                                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                            <div class="w-1/2 h-full bg-purple-50 rounded-r-lg p-3 flex flex-col justify-between">
+                                <div class="flex justify-end">
+                                    <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p class="text-xs text-gray-600">Página 13</p>
                                 </div>
+                                <div class="flex justify-center items-center h-32">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-yellow-800" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                                    </svg>
+                                </div>
+                                <p class="text-xs text-gray-600 text-right">Página 13</p>
                             </div>
                         </div>
-                        
+
                         <!-- AR Icon -->
                         <div class="absolute top-0 right-0 bg-indigo-600 text-white rounded-full p-3 shadow-lg animate-pulse">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,825 +149,508 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-        </div>
-        
-        <!-- Background Elements -->
-        <div class="absolute top-20 left-10 opacity-10">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-purple-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-            </svg>
-        </div>
-        <div class="absolute bottom-20 right-10 opacity-10">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-indigo-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-        </div>
-    </section>
 
-    <!-- Featured Sections -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">Destaques InclusiVR</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Featured Product -->
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <div class="flex justify-center mb-6">
-                        <div class="w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Livro interativo "SinalizAção – Animais em Voga"</h3>
-                    <p class="text-gray-600 mb-6 text-center">Nosso produto mais recente combina um livro físico com experiências de realidade aumentada para ensinar LIBRAS de forma lúdica.</p>
-                    <div class="flex justify-center">
-                        <a href="#produtos" class="px-6 py-2 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition duration-300">
-                            Saiba mais
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Featured Game -->
-                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <div class="flex justify-center mb-6">
-                        <div class="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">SinalizaAção VR</h3>
-                    <p class="text-gray-600 mb-6 text-center">Jogo em desenvolvimento para Quest 2 que transforma o aprendizado de LIBRAS em uma aventura imersiva em realidade virtual.</p>
-                    <div class="flex justify-center">
-                        <a href="#produtos" class="px-6 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition duration-300">
-                            Em desenvolvimento
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Featured Team -->
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <div class="flex justify-center mb-6">
-                        <div class="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Conheça o time da InclusiVR</h3>
-                    <p class="text-gray-600 mb-6 text-center">Uma equipe multidisciplinar apaixonada por acessibilidade, educação e tecnologia imersiva.</p>
-                    <div class="flex justify-center">
-                        <a href="#quem-somos" class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition duration-300">
-                            Nosso time
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Store Section -->
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Loja + Amostras grátis</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6">Adquira nossos produtos educacionais ou experimente amostras gratuitas para conhecer nossa tecnologia.</p>
-                    <div class="flex justify-end">
-                        <a href="#loja" class="px-6 py-2 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition duration-300">
-                            Visitar loja
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- newsletter Section -->
-                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <div class="flex items-center mb-6">
-                        <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">Newsletter com novidades e eventos</h3>
-                    </div>
-                    <p class="text-gray-600 mb-6">Acompanhe as últimas notícias, eventos e bastidores do desenvolvimento de nossos produtos.</p>
-                    <div class="flex justify-end">
-                        <a href="#newsletter" class="px-6 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition duration-300">
-                            Acompanhar Newsletter
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Contact CTA -->
-            <div class="mt-10 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg p-8 text-white">
-                <div class="flex flex-col md:flex-row items-center justify-between">
-                    <div class="mb-6 md:mb-0">
-                        <h3 class="text-2xl font-bold mb-2">Entre em contato e cadastre-se</h3>
-                        <p class="text-purple-100">Receba novidades, atualizações e conteúdos exclusivos sobre nossos produtos.</p>
-                    </div>
-                    <a href="#contato" class="px-8 py-3 bg-white text-purple-600 rounded-full font-bold text-lg hover:bg-purple-100 transition duration-300 shadow-lg">
-                        Cadastrar
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="produtos" class="py-20 bg-gradient-to-b from-white to-purple-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Nossos Produtos</h2>
-            <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-                Tecnologias imersivas que transformam o aprendizado de LIBRAS em uma experiência lúdica, visual e interativa.
-            </p>
-                   <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-                Venha conhecer e experimentar o futuro da interação da língua de sinais com uma realidade digital! 
-            </p>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-                <!-- Product 1: AR Book -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
-                    <div class="h-64 bg-purple-100 relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="relative w-40 h-56 bg-purple-600 rounded-lg shadow-lg transform -rotate-6">
-                                <div class="w-full h-full bg-purple-600 rounded-lg p-4 flex flex-col justify-between">
-                                    <div>
-                                        <h3 class="text-white text-xl font-bold">SinalizaAção</h3>
-                                        <p class="text-purple-200 text-sm">Animais em Voga</p>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                        </svg>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-purple-200 text-xs">InclusiVR</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- AR Icon -->
-                            <div class="absolute top-4 right-4 bg-indigo-600 text-white rounded-full p-2 shadow-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Livro AR – SinalizaAção: Animais em Voga</h3>
-                
-                    <p class="text-gray-600 mb-4">Conheça a história da Maga Aia e do universo de SinalizaAção - um mundo mágico onde a LIBRAS é mais do que uma forma de se comunicar, ela é também a chave para uma aventura mágica! 
-</h3>
-
-                        <ul class="text-gray-600 mb-6 space-y-2">
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Livro interativo com realidade aumentada para crianças de 5 a 8 anos
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Cada página mostra um animal com sinal em LIBRAS animado em 3D
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Jogo de cartas destacável com elementos offline e AR
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Ideal para pais ouvintes, professores e escolas inclusivas
-                            </li>
-                        </ul>
-                        <div class="flex justify-center">
-                            <a href="#loja" class="px-6 py-2 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition duration-300">
-                                Detalhes
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 2: Card Game -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
-                    <div class="h-64 bg-indigo-100 relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <!-- Cards -->
-                            <div class="relative">
-                                <div class="w-32 h-44 bg-white rounded-lg shadow-lg absolute -left-10 top-0 transform -rotate-12">
-                                    <div class="w-full h-full rounded-lg border-2 border-indigo-200 p-2 flex flex-col justify-between">
-                                        <div class="text-center">
-                                            <h4 class="text-indigo-800 text-sm font-bold">Cartas Mágicas</h4>
-                                        </div>
-                                        <div class="flex justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-indigo-400 text-xs">InclusiVR</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="w-32 h-44 bg-white rounded-lg shadow-lg transform rotate-6">
-                                    <div class="w-full h-full rounded-lg border-2 border-indigo-200 p-2 flex flex-col justify-between">
-                                        <div class="text-center">
-                                            <h4 class="text-indigo-800 text-sm font-bold">Cartas Mágicas</h4>
-                                        </div>
-                                        <div class="flex justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-indigo-400 text-xs">InclusiVR</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="w-32 h-44 bg-white rounded-lg shadow-lg absolute -right-10 top-0 transform rotate-12">
-                                    <div class="w-full h-full rounded-lg border-2 border-indigo-200 p-2 flex flex-col justify-between">
-                                        <div class="text-center">
-                                            <h4 class="text-indigo-800 text-sm font-bold">Cartas Mágicas</h4>
-                                        </div>
-                                        <div class="flex justify-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-500" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                                            </svg>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-indigo-400 text-xs">InclusiVR</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- AR Icon -->
-                            <div class="absolute top-4 right-4 bg-indigo-600 text-white rounded-full p-2 shadow-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Jogo de Cartas – Cartas Mágicas</h3>
-                        <p class="text-gray-600 mb-4">Embaralhe as cartas e encontre as imagens correspondentes! Neste jogo dinâmico e divertido, os jogadores irão rever as imagens dos livros e seus sinais numa competição para 
-ver quem consegue se lembrar dos pares mais rápido!</p>
-                        <ul class="text-gray-600 mb-6 space-y-2">
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Jogo de pares com sinais aprendidos no livro
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Elementos AR no verso das cartas
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Para até dois jogadores
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Pode ser jogado sem ajuda de um smartphone ou tablet.
-                            </li>
-                        </ul>
-                        <div class="flex justify-center">
-                            <a href="#loja" class="px-6 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition duration-300">
-                                Detalhes
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 3: VR Game -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
-                    <div class="h-64 bg-blue-100 relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <!-- VR Headset -->
-                            <div class="relative">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-blue-800" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
-                                    <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
-                                    <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" />
-                                </svg>
-                                
-                                <div class="absolute -top-4 -right-4 bg-blue-600 text-white rounded-full p-3 shadow-lg animate-pulse">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            
-                            <!-- Coming Soon Badge -->
-                            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold">
-                                Em desenvolvimento
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Jogo VR – SinalizaAção VR</h3>
-                        <p class="text-gray-600 mb-4">Já pensou em mergulhar diretamente no mundo mágico da LIBRAS? Com a Realidade 
-Virtual, isso é possível!</p>
-                        <ul class="text-gray-600 mb-6 space-y-2">
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Aventura de 20h para adolescentes e adultos iniciantes em LIBRAS
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Uma história épica, com missões e desbloqueio de sinais mágicos                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                Lançamento previsto: 2026
-                            </li>
-                            <li class="flex items-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                                </svg>
-                                DLCs com sinais mais avançados planejados
-                            </li>
-                        </ul>
-                        <div class="flex justify-center">
-                              <a href="#loja" class="px-6 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition duration-300">
-                                Detalhes
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product Demo Video -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-20">
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Veja como funciona</h3>
-                    <p class="text-gray-600 mb-8 text-center max-w-3xl mx-auto">
-                        Nossos produtos combinam o mundo físico com experiências digitais imersivas para criar um ambiente de aprendizado único e envolvente.
-                    </p>
-                    
-                    <div class="aspect-w-16 aspect-h-9 bg-purple-100 rounded-lg overflow-hidden relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="w-20 h-20 rounded-full bg-purple-600 flex items-center justify-center mx-auto mb-4 animate-pulse">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <p class="text-purple-800 font-semibold">Vídeo demonstrativo</p>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-            
-            <!-- Testimonials -->
-            <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg p-8 text-white">
-                <h3 class="text-2xl font-bold mb-8 text-center">O que dizem sobre nossos produtos</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Ana Luiza</h4>
-                                <p class="text-sm text-purple-200">Mãe de criança surda</p>
-                            </div>
-                        </div>
-                        <p class="italic">"O livro SinalizaAção transformou nossa rotina de aprendizado. Minha filha adora ver os animais ganharem vida e ensinar os sinais para toda a família."</p>
-                    </div>
-                    
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-indigo-200 flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Carlos Eduardo</h4>
-                                <p class="text-sm text-purple-200">Professor de escola inclusiva</p>
-                            </div>
-                        </div>
-                        <p class="italic">"As Cartas Mágicas são um sucesso na sala de aula. Os alunos ouvintes e surdos interagem naturalmente enquanto aprendem LIBRAS de forma divertida."</p>
-                    </div>
-                    
-                    <div class="bg-white bg-opacity-10 p-6 rounded-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 rounded-full bg-blue-200 flex items-center justify-center mr-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold">Mariana Silva</h4>
-                                <p class="text-sm text-purple-200">Coordenadora pedagógica</p>
-                            </div>
-                        </div>
-                        <p class="italic">"A tecnologia da InclusiVR trouxe uma nova dimensão para o ensino de LIBRAS em nossa escola. Estamos ansiosos pelo lançamento do jogo VR."</p>
-                    </div>
-                </div>
+            <!-- Background Elements (decorativos) -->
+            <div class="absolute top-20 left-10 opacity-10" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-purple-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                </svg>
             </div>
-        </div>
-    </section>
-
-
-
-
-    
-    <!-- Team Section -->
-    <section id="quem-somos" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Quem Somos</h2>
-            <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-                A InclusiVR é uma startup formada por uma equipe multidisciplinar dedicada a tornar o ensino de LIBRAS mais acessível, imersivo e divertido por meio da tecnologia XR.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                <!-- Luciano -->
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Luciano Delphino de Azevedo Júnior</h3>
-                    <p class="text-purple-600 font-semibold mb-4 text-center">Psicólogo e Diretor Criativo</p>
-                    <p class="text-gray-600 text-center">Psicólogo pela UNESP, técnico em eletrônica, mestre na USP Ribeirão. Responsável pela metodologia do jogo e pelo universo SinalizaAção, atua com base em Análise do Comportamento Aplicada.</p>
-                </div>
-
-                <!-- Maria Clara -->
-                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Maria Clara Franco Cardoso</h3>
-                    <p class="text-indigo-600 font-semibold mb-4 text-center">Socióloga e Cofundadora</p>
-                    <p class="text-gray-600 text-center">Bacharel em Ciências Sociais pela USP, especialista em pesquisa de mercado. Cofundadora da InclusiVR e gestora do projeto no programa NIDUS.</p>
-                </div>
-
-                <!-- Victor -->
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Victor Sad de Souza</h3>
-                    <p class="text-blue-600 font-semibold mb-4 text-center">Jurídico e Negócios</p>
-                    <p class="text-gray-600 text-center">Advogado com foco em startups e inovação. Estrutura jurídica e estratégica da InclusiVR. Participa do programa NIDUS USP.</p>
-                </div>
-
-                <!-- Fauston -->
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Fauston</h3>
-                    <p class="text-purple-600 font-semibold mb-4 text-center">Especialista em LIBRAS</p>
-                    <p class="text-gray-600 text-center">Licenciado em Artes Cênicas (USP), professor e intérprete de LIBRAS, pesquisador da educação inclusiva. Atua na rede pública de SP e na consultoria pedagógica da InclusiVR.</p>
-                </div>
-
-                <!-- JLeo -->
-                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Leonardo "JLeo" Martins</h3>
-                    <p class="text-indigo-600 font-semibold mb-4 text-center">Programador XR</p>
-                    <p class="text-gray-600 text-center">Desenvolvedor de experiências imersivas em XR. Responsável pela programação do jogo e pela integração de tecnologias AR e VR.</p>
-                </div>
-
-                <!-- Igor -->
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">Igor Buccioli</h3>
-                    <p class="text-blue-600 font-semibold mb-4 text-center">Ilustrador Surdo e Influenciador</p>
-                    <p class="text-gray-600 text-center">Artista visual com quase 1 milhão de seguidores nas redes. Responsável pela identidade visual do universo LIBROS no jogo e nos livros.</p>
-                </div>
+            <div class="absolute bottom-20 right-10 opacity-10" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-indigo-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
             </div>
+        </section>
 
-            <p class="text-center text-gray-500 max-w-4xl mx-auto">
-                Há 3 anos desenvolvendo com parceiros e programas como USP, NIDUS, PROAC e VaiTec, buscamos criar soluções disruptivas para a inclusão e ensino de LIBRAS com base em estudos teóricos, testes com o público e muita inovação pedagógica.
-            </p>
-        </div>
-    </section>
-
-
-
-
-
-
-
-            
-            <section id="roadmap" class="py-24 bg-gradient-to-b from-white via-purple-50 to-white">
-                <div class="container mx-auto px-4">
-                  <h2 class="text-5xl font-extrabold text-center text-purple-800 mb-16">Nossa Jornada</h2>
-              
-                  <div class="overflow-x-auto">
-                    <div class="flex space-x-6 md:space-x-10 items-start justify-start pb-8 md:pb-16">
-              
-                      <!-- 2023 -->
-                      <div class="flex-shrink-0 w-72 bg-white border-t-4 border-purple-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <h3 class="text-purple-700 text-xl font-bold mb-2">2023</h3>
-                        <p class="text-gray-700 text-base leading-relaxed">
-                          Surgimento da ideia na USP, em uma disciplina universitária. Fundação da startup por <strong>Maria</strong> e <strong>Luciano</strong>. Entrada de <strong>Victor</strong> no grupo no final do ano.
-                        </p>
-                      </div>
-              
-                      <!-- 2024 -->
-                      <div class="flex-shrink-0 w-72 bg-white border-t-4 border-indigo-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <h3 class="text-indigo-700 text-xl font-bold mb-2">2024</h3>
-                        <p class="text-gray-700 text-base leading-relaxed">
-                          InclusiVR é incubada pelo <strong>NIDUS-USP</strong>. Entrada de <strong>JLeo</strong> e <strong>Fauston</strong>. Estruturação pedagógica e testes lúdicos do jogo de VR.
-                        </p>
-                      </div>
-              
-                      <!-- 2025 -->
-                      <div class="flex-shrink-0 w-72 bg-white border-t-4 border-blue-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <h3 class="text-blue-700 text-xl font-bold mb-2">2025</h3>
-                        <p class="text-gray-700 text-base leading-relaxed">
-                          Participação em editais de fomento. Entrada de <strong>Igor</strong> como ilustrador e co-criador dos livros. Lançamento do nosso primeiro livro com AR.
-                        </p>
-                      </div>
-              
-                      <!-- 2026 -->
-                      <div class="flex-shrink-0 w-72 bg-white border-t-4 border-pink-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <h3 class="text-pink-700 text-xl font-bold mb-2">2026</h3>
-                        <p class="text-gray-700 text-base leading-relaxed">
-                          Desenvolvimento e lançamento do <strong>jogo VR</strong> com apoio do <strong>PROAC</strong>. Criação de 2 livros e início da vaquinha para expansão.
-                        </p>
-                      </div>
-              
-                      <!-- 2027 -->
-                      <div class="flex-shrink-0 w-72 bg-white border-t-4 border-green-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
-                        <h3 class="text-green-700 text-xl font-bold mb-2">2027</h3>
-                        <p class="text-gray-700 text-base leading-relaxed">
-                          Tradução para o inglês dos conteúdos já criados. Lançamento de uma <strong>DLC</strong> do jogo + mais <strong>2 livros inéditos</strong>.
-                        </p>
-                      </div>
-              
-                    </div>
-                  </div>
-              
-                  <p class="text-center text-sm text-gray-500 mt-4">⬅️ Role para o lado e acompanhe nossa trajetória ⟶</p>
-                </div>
-              </section>
-
-              
-
-
-
-
-    
-
-              <section id="loja" class="py-24 bg-gradient-to-b from-white to-purple-50">
-                <div class="container mx-auto px-6">
-                  <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-16">🛒 Loja InclusiVR</h2>
-              
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Produto: Livro com AR -->
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition duration-300 product-card">
-                      <img src="produto1.png" alt="Livro com AR" class="rounded-lg mb-4 h-60 w-full object-cover">
-                      <h3 class="text-xl font-bold text-purple-700 mb-2">📘 Livro Interativo SinalizaAção – Animais em Voga</h3>
-                      <p class="text-gray-600 mb-4">Um livro interativo com realidade aumentada para aprender LIBRAS brincando! Acompanha jogo de cartas e ativa personagens em 3D com o celular.</p>
-                      <p class="text-gray-600 mb-4"></p>Descrição da história: A maga Aia usa sinais em LIBRAS para ajudar um zoológico encantado a encontrar seus animais desaparecidos.</p> 
-                        <p class="text-gray-600 mb-4"></p></p>
-                      <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                        <li>Realidade Aumentada nas páginas (animações de sinais).</li>
-                        <li>Livro com texturas em 3D, de alto relevo.</li>
-                        <li>Jogo de cartas destacável no final.</li>
-                        <li>Ideal para crianças de 5 a 8 anos, pais e educadores.</li>
-                        <li>Formato: brochura, 32 páginas coloridas, papel couchê.</li>
-                        <li>Enviado em embalagem personalizada</li>
-                        <h3 class="text-xl font-bold text-purple-500 mb-2">Requisitos: celular com câmera e app gratuito InclusiVR.</p> 
-
-
-
-                      </ul>
-                      <div class="flex justify-between">
-                  <button class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition duration-300 cursor-not-allowed opacity-70">
-                                Em breve
-                            </button>
-                        <a href="#contato" class="text-purple-600 font-semibold hover:underline">Experimente!</a>
-                      </div>
-                    </div>
-              
-                    <!-- Produto: Cartas Mágicas -->
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition duration-300 product-card">
-                      <img src="produto2.png" alt="Cartas Mágicas" class="rounded-lg mb-4 h-60 w-full object-cover">
-                      <h3 class="text-xl font-bold text-indigo-700 mb-2">🃏 Cartas Mágicas</h3>
-                      <p class="text-gray-600 mb-4">Cartas dispostas em leque, com destaque visual dos ícones e animais.</p>
-                        <p class="text-gray-600 mb-4"></p>Jogo complementar com pares de sinais em LIBRAS. Para jogar offline com amigos e familiares!</p>
-                        <p class="text-gray-600 mb-4"></p></p>
-                        <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                        <li>Ideal para relembrar os sinais vistos no livro.</li>
-                        <li>Pode ser jogado por crianças com amigos e familiares, para até 2 jogadores</li> 
-                        <li>32 cartas coloridas + Elementos AR no verso + instruções.</li>
-                        <li>Material: papel cartão com verniz fosco.</li>
-                      </ul>
-                      <div class="flex justify-between">
-                  <button class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition duration-300 cursor-not-allowed opacity-70">
-                                Em breve
-                            </button>                        
-                            <a href="#contato" class="text-indigo-600 font-semibold hover:underline">Experimente!</a>
-                      </div>
-                    </div>
-              
-                    <!-- Amostra Gratuita -->
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition duration-300 product-card">
-                      <img src="produto3.png" alt="Demo Aia" class="rounded-lg mb-4 h-60 w-full object-cover">
-                      <h3 class="text-xl font-bold text-green-700 mb-2">📥 Vaquinha Online do Jogo VR: SinalizaAção VR (em desenvolvimento)</h3>
-                      <p class="text-gray-600 mb-4">Apoia.se do jogo SinalizaAção VR (em desenvolvimento).</p>
-                      <p class="text-gray-600 mb-4">Já pensou em mergulhar diretamente no mundo de SinalizaAção? Junte-se a nós para construir esse novo mundo!</p>
-                      <p class="text-gray-600 mb-4"></p>
-                      <ul class="text-sm text-gray-700 mb-4 space-y-1">
-                      </ul>
-                      <div class="flex justify-between">
-                        <a href="#contato" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 cursor-not-allowed">Baixar App</a>
-                        <a href="#contato" class="text-green-700 font-semibold hover:underline">Experimente!</a>
-                      </div>
-                    </div>
-                  </div>
-              
-                  <!-- Blocos extras -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-                    <!-- Compra em grande volume -->
-                    <div class="bg-purple-100 border-l-4 border-purple-400 p-6 rounded-xl shadow-md">
-                      <h4 class="text-xl font-bold text-purple-800 mb-2">📦 Comprar em Grandes Quantidades / Revendas </h4>
-                      <p class="text-gray-700">Para escolas, projetos sociais, instituições ou revenda, entre em contato e 
-faremos um orçamento personalizado com desconto.</p>
-                      <a href="#contato" class="inline-block mt-4 bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700">Solicitar Orçamento</a>
-                    </div>
-              
-                    <!-- Financiamento coletivo -->
-                    <div class="bg-yellow-100 border-l-4 border-yellow-400 p-6 rounded-xl shadow-md">
-                      <h4 class="text-xl font-bold text-yellow-700 mb-2">💡 Financiamento Coletivo (Em Breve)</h4>
-                      <p class="text-gray-700">Em breve, apoie nosso jogo de VR participando da campanha de financiamento coletivo! Fique de olho nas atualizações ou cadastre seu e-mail para ser avisado.</p>
-                      <a href="#contato" class="inline-block mt-4 bg-yellow-500 text-white px-5 py-2 rounded-full hover:bg-yellow-600">Quero Ser Avisado</a>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              
-<section id="newsletter" class="py-24 bg-gradient-to-b from-purple-50 to-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-4">📬 Newsletter InclusiNews</h2>
-    <p class="text-center text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
-      Assine nossa newsletter e acompanhe as novidades, bastidores e histórias mágicas da InclusiVR!
+       <!-- Products Section (substituído pelos 3 cards de diferenciais) -->
+<section id="produtos" class="py-20 bg-gradient-to-b from-white to-purple-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Livro SinalizaAção – Animais em Voga</h2>
+    <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+      Tecnologias imersivas que transformam o aprendizado de LIBRAS em uma experiência lúdica, visual e interativa.
     </p>
 
-    <!-- Formulário de inscrição -->
-    <div class="max-w-xl mx-auto mb-16">
-      <form class="flex flex-col sm:flex-row items-center gap-4">
-        <input type="email" placeholder="Digite seu e-mail" class="flex-1 px-4 py-3 rounded-full border border-purple-300 focus:ring-2 focus:ring-purple-500" required>
-        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition shadow-md">
-          Assinar
-        </button>
-      </form>
+    <div class="max-w-4xl mx-auto text-left text-gray-700 mb-12">
+      <p class="mb-4">
+        “SinalizaAção: Animais em Voga" é o primeiro livro infantil desenvolvido pela InclusiVR — uma startup dedicada a unir educação inclusiva e tecnologia imersiva. A obra combina realidade aumentada, texturas táteis e uma história original para apresentar a Língua Brasileira de Sinais (LIBRAS) de maneira encantadora e acessível.
+      </p>
+      <p class="mb-4">
+        Signária é uma cidade bastante peculiar. Nela, todos os habitantes se comunicam em LIBRAS. Aia, a maga, possui artefatos que transformam os sinais em magia. Quando seu Zé perde os animais do zoológico, juntos precisam ativar os sinais e encontrá-los.
+      </p>
+      <p>
+        O livro traz ilustrações do artista surdo Igor B., texturas táteis, AR para animar sinais em 3D e um jogo de cartas para treino prático. Desenvolvido por equipe multidisciplinar (psicologia, tecnologia, linguística, educação e direito).
+      </p>
     </div>
 
-    <!-- Grade de edições -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+    <!-- Novos cards: AR & App | Texturas Táteis | Jogo de Cartas -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
 
-      <!-- Edição 001 -->
-      <article class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition duration-300">
-        <h3 class="text-xl font-bold text-purple-700 mb-1">Edição nº: 001</h3>
-        <p class="text-sm text-gray-500 mb-2">Autor: Luciano Delphino • 15/07/2025</p>
-        <h4 class="text-lg font-semibold text-purple-800 mb-2">Bem-vindos à InclusiVR!</h4>
-        <p class="text-gray-600 text-sm mb-4">
-          Conheça a missão da InclusiVR e o universo mágico de SinalizaAção, onde LIBRAS se transforma em superpoder!
-        </p>
-          <!--  <a href="#" class="text-purple-600 font-semibold hover:underline">Ler edição completa →</a> -->
+      <!-- Card 1: AR & Aplicativo (com carrossel de fotos/vídeos) -->
+      <article class="bg-white rounded-xl shadow-lg overflow-hidden product-card" aria-labelledby="card-ar-title">
+        <div class="p-6">
+          <h3 id="card-ar-title" class="text-xl font-bold text-gray-800 mb-3">AR & Aplicativo</h3>
+          <p class="text-gray-600 mb-4">Ative animações 3D dos sinais com a câmera e acesse atividades interativas diretamente pelo app InclusiVR.</p>
+
+          <!-- Carousel -->
+          <div id="produtos-carousel" class="relative bg-gray-50 rounded-lg overflow-hidden shadow-inner">
+            <div class="carousel-viewport h-48 md:h-56 flex items-center justify-center bg-black">
+              <!-- slides (imagens/videos) -->
+              <div class="carousel-item w-full h-full hidden items-center justify-center" data-type="image">
+                <img src="ar-1.jpg" alt="AR - girafa animada" class="w-full h-full object-cover">
+              </div>
+
+              <div class="carousel-item w-full h-full hidden items-center justify-center" data-type="image">
+                <img src="ar-2.jpg" alt="AR - elefante animado" class="w-full h-full object-cover">
+              </div>
+
+              <div class="carousel-item w-full h-full hidden items-center justify-center" data-type="video">
+                <video class="w-full h-full object-cover" controls poster="ar-video-poster.jpg" aria-label="Vídeo demonstrativo AR">
+                  <source src="ar-demo.mp4" type="video/mp4">
+                  Seu navegador não suporta vídeo.
+                </video>
+              </div>
+            </div>
+
+            <!-- controls -->
+            <button class="carousel-btn prev absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow" aria-label="Slide anterior">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 16.293a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+            </button>
+            <button class="carousel-btn next absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow" aria-label="Próximo slide">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 16.293a1 1 0 010-1.414L15.586 11H5a1 1 0 110-2h10.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+            </button>
+
+            <!-- indicators / thumbnails -->
+            <div class="carousel-thumbs flex gap-3 p-3 justify-center bg-white">
+              <button class="thumb w-20 h-12 rounded-md overflow-hidden border-2 border-transparent focus:border-purple-600" data-index="0" aria-label="Ver imagem 1">
+                <img src="ar-1-thumb.jpg" alt="Miniatura girafa" class="w-full h-full object-cover">
+              </button>
+              <button class="thumb w-20 h-12 rounded-md overflow-hidden border-2 border-transparent focus:border-purple-600" data-index="1" aria-label="Ver imagem 2">
+                <img src="ar-2-thumb.jpg" alt="Miniatura elefante" class="w-full h-full object-cover">
+              </button>
+              <button class="thumb w-20 h-12 rounded-md overflow-hidden border-2 border-transparent focus:border-purple-600" data-index="2" aria-label="Ver vídeo">
+                <img src="ar-video-thumb.jpg" alt="Miniatura vídeo AR" class="w-full h-full object-cover">
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-4 flex justify-center">
+            <a href="#veja-app" class="px-5 py-2 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition">Abrir área do App</a>
+          </div>
+        </div>
       </article>
 
-      <!-- Edição 002 -->
-      <article class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition duration-300">
-        <h3 class="text-xl font-bold text-indigo-700 mb-1">Edição nº: 002</h3>
-        <p class="text-sm text-gray-500 mb-2">Autor: Luciano Delphino • 30/07/2025</p>
-        <h4 class="text-lg font-semibold text-indigo-800 mb-2">Conheça a equipe InclusiVR</h4>
-        <p class="text-gray-600 text-sm mb-4">
-          Apresentamos os fundadores e talentos criativos por trás da InclusiVR. Uma equipe apaixonada por tecnologia e inclusão.
-        </p>
-          <!--  <a href="#" class="text-indigo-600 font-semibold hover:underline">Ler edição completa →</a> -->
+      <!-- Card 2: Texturas Táteis -->
+      <article class="bg-white rounded-xl shadow-lg overflow-hidden product-card p-6" aria-labelledby="card-texturas-title">
+        <h3 id="card-texturas-title" class="text-xl font-bold text-gray-800 mb-3">Texturas Táteis</h3>
+        <p class="text-gray-600 mb-4">Páginas com relevos e diferentes texturas que estimulam a motricidade fina e promovem um primeiro contato sensorial com os sinais.</p>
+
+        <ul class="text-gray-600 mb-6 list-disc list-inside space-y-2">
+          <li>Relevos indicativos para posicionamento das mãos</li>
+          <li>Superfícies com texturas diferenciadas (áspero, liso, macio)</li>
+          <li>Atividades sensoriais ligadas a cada animal e sinal</li>
+        </ul>
+
+        <div class="flex justify-center">
+          <a href="#contato" class="px-5 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition">Solicitar amostra</a>
+        </div>
       </article>
 
-      <!-- Edição 003 -->
-      <article class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition duration-300">
-        <h3 class="text-xl font-bold text-blue-700 mb-1">Edição nº: 003</h3>
-        <p class="text-sm text-gray-500 mb-2">Autor: Luciano Delphino • 14/08/2025</p>
-        <h4 class="text-lg font-semibold text-blue-800 mb-2">O universo de SinalizaAção e sua proposta pedagógica</h4>
-        <p class="text-gray-600 text-sm mb-4">
-          Descubra como a narrativa e a gamificação em LIBRAS se unem para criar experiências educacionais encantadoras.
-        </p>
-    <!--    <a href="#" class="text-blue-600 font-semibold hover:underline">Ler edição completa →</a> -->
+      <!-- Card 3: Jogo de Cartas -->
+      <article class="bg-white rounded-xl shadow-lg overflow-hidden product-card p-6" aria-labelledby="card-cartas-title">
+        <h3 id="card-cartas-title" class="text-xl font-bold text-gray-800 mb-3">Jogo de Cartas</h3>
+        <p class="text-gray-600 mb-4">Baralho educativo para reforço dos sinais com opções de jogo em família, na escola ou sem dispositivo — com elementos AR no verso.</p>
+
+        <ul class="text-gray-600 mb-6 list-disc list-inside space-y-2">
+          <li>Cartas resistentes e texturizadas</li>
+          <li>Modos: memória, associação e desafio de velocidade</li>
+          <li>Compatível com o app para experiências aumentadas</li>
+        </ul>
+
+        <div class="flex justify-center">
+          <a href="#contato" class="px-5 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition">Peça uma demo</a>
+        </div>
       </article>
 
     </div>
+  </div>
 
- <!-- Rodapé da newsletter -->
-<div class="mt-16 text-center">
-  <p class="text-gray-500 text-sm mb-4">📌 Receba as próximas edições diretamente no seu e-mail</p>
-  <p class="text-gray-500 text-sm mb-6">Fique ligado nas novidades mágicas da InclusiVR.</p>
-  
-  <a href="#contato" class="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 shadow-md">
-    Assinar Newsletter
-  </a>
-</div>
+  <!-- Carousel script (vanilla JS) -->
+  <script>
+    (function(){
+      const carousel = document.getElementById('produtos-carousel');
+      if (!carousel) return;
 
+      const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+      const thumbs = Array.from(carousel.querySelectorAll('.thumb'));
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      let index = 0;
+
+      function show(i) {
+        // normalize
+        if (i < 0) i = items.length - 1;
+        if (i >= items.length) i = 0;
+        index = i;
+
+        items.forEach((it, idx) => {
+          it.classList.toggle('hidden', idx !== index);
+          it.classList.toggle('flex', idx === index);
+          // pause other videos
+          const vid = it.querySelector('video');
+          if (vid && idx !== index) { vid.pause(); vid.currentTime = 0; }
+        });
+
+        thumbs.forEach((t, idx) => {
+          t.classList.toggle('border-purple-600', idx === index);
+          t.classList.toggle('opacity-60', idx !== index);
+        });
+      }
+
+      // initial
+      show(0);
+
+      // events
+      prevBtn.addEventListener('click', () => show(index - 1));
+      nextBtn.addEventListener('click', () => show(index + 1));
+      thumbs.forEach(t => t.addEventListener('click', (e) => {
+        const i = parseInt(t.getAttribute('data-index'), 10);
+        show(i);
+      }));
+
+      // keyboard support
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') show(index - 1);
+        if (e.key === 'ArrowRight') show(index + 1);
+      });
+
+      // make carousel swipeable (touch)
+      let startX = 0;
+      let isTouch = false;
+      const viewport = carousel.querySelector('.carousel-viewport');
+      viewport.addEventListener('touchstart', (e) => {
+        isTouch = true;
+        startX = e.touches[0].clientX;
+      });
+      viewport.addEventListener('touchend', (e) => {
+        if (!isTouch) return;
+        const endX = (e.changedTouches && e.changedTouches[0].clientX) || 0;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) show(index + 1);
+          else show(index - 1);
+        }
+        isTouch = false;
+      });
+
+      // stop propagation on video controls so keyboard doesn't trigger page shortcuts while focused
+      carousel.querySelectorAll('video').forEach(v => {
+        v.addEventListener('play', () => {
+          // optional: do something when video plays
+        });
+      });
+    })();
+  </script>
+</section>
+
+        <!-- Team Section -->
+        <section id="quem-somos" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Quem Somos</h2>
+                <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">A InclusiVR é uma startup formada por uma equipe multidisciplinar dedicada a tornar o ensino de LIBRAS mais acessível, imersivo e divertido por meio da tecnologia XR.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Luciano Delphino de Azevedo Júnior</h3>
+                        <p class="text-purple-600 font-semibold mb-4">Psicólogo e Diretor Criativo</p>
+                        <p class="text-gray-600">Psicólogo pela UNESP, técnico em eletrônica, mestre na USP Ribeirão. Responsável pela metodologia do jogo e pelo universo SinalizaAção.</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Maria Clara Franco Cardoso</h3>
+                        <p class="text-indigo-600 font-semibold mb-4">Socióloga e Cofundadora</p>
+                        <p class="text-gray-600">Bacharel em Ciências Sociais pela USP, especialista em pesquisa de mercado. Cofundadora da InclusiVR e gestora do projeto no NIDUS.</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Victor Sad de Souza</h3>
+                        <p class="text-blue-600 font-semibold mb-4">Jurídico e Negócios</p>
+                        <p class="text-gray-600">Advogado com foco em startups e inovação. Estrutura jurídica e estratégica da InclusiVR.</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Fauston</h3>
+                        <p class="text-purple-600 font-semibold mb-4">Especialista em LIBRAS</p>
+                        <p class="text-gray-600">Licenciado em Artes Cênicas (USP), professor e intérprete de LIBRAS, pesquisador da educação inclusiva.</p>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Leonardo "JLeo" Martins</h3>
+                        <p class="text-indigo-600 font-semibold mb-4">Programador XR</p>
+                        <p class="text-gray-600">Desenvolvedor de experiências imersivas em XR. Responsável pela programação do jogo e integração AR/VR.</p>
+                    </div>
+                </div>
+
+                <p class="text-center text-gray-500 max-w-4xl mx-auto">Há 3 anos desenvolvendo com parceiros e programas como USP, NIDUS, PROAC e VaiTec — buscamos criar soluções disruptivas para a inclusão e ensino de LIBRAS com base em testes e inovação pedagógica.</p>
+            </div>
+        </section>
+
+        <!-- Roadmap -->
+        <section id="roadmap" class="py-24 bg-gradient-to-b from-white via-purple-50 to-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-extrabold text-center text-purple-800 mb-16">Nossa Jornada</h2>
+
+                <div class="overflow-x-auto">
+                    <div class="flex space-x-6 md:space-x-10 items-start justify-start pb-8 md:pb-16">
+                        <div class="flex-shrink-0 w-72 bg-white border-t-4 border-purple-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                            <h3 class="text-purple-700 text-xl font-bold mb-2">2023</h3>
+                            <p class="text-gray-700 text-base">Surgimento da ideia na USP. Fundação por Maria e Luciano. Entrada de Victor no final do ano.</p>
+                        </div>
+
+                        <div class="flex-shrink-0 w-72 bg-white border-t-4 border-indigo-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                            <h3 class="text-indigo-700 text-xl font-bold mb-2">2024</h3>
+                            <p class="text-gray-700 text-base">InclusiVR incubada pelo NIDUS-USP. Entrada de JLeo e Fauston. Estruturação pedagógica e testes.</p>
+                        </div>
+
+                        <div class="flex-shrink-0 w-72 bg-white border-t-4 border-blue-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                            <h3 class="text-blue-700 text-xl font-bold mb-2">2025</h3>
+                            <p class="text-gray-700 text-base">Participação em editais. Entrada de Igor (ilustrador). Lançamento do primeiro livro com AR.</p>
+                        </div>
+
+                        <div class="flex-shrink-0 w-72 bg-white border-t-4 border-pink-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                            <h3 class="text-pink-700 text-xl font-bold mb-2">2026</h3>
+                            <p class="text-gray-700 text-base">Desenvolvimento e lançamento do jogo VR com apoio PROAC. Criação de mais livros.</p>
+                        </div>
+
+                        <div class="flex-shrink-0 w-72 bg-white border-t-4 border-green-600 rounded-xl shadow-lg p-6 transform hover:scale-105 transition duration-300">
+                            <h3 class="text-green-700 text-xl font-bold mb-2">2027</h3>
+                            <p class="text-gray-700 text-base">Tradução para inglês e lançamento de DLC e novos livros.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center text-sm text-gray-500 mt-4">⬅️ Role para o lado e acompanhe nossa trajetória ⟶</p>
+            </div>
+        </section>
+
+       <!-- Loja (Parte 7) - Mantém apenas anúncio do livro + contato B2B -->
+<section id="loja" class="py-24 bg-gradient-to-b from-white to-purple-50">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-8">🛒 Loja InclusiVR</h2>
+
+    <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <!-- Imagem do livro / placeholder -->
+        <div class="w-56 flex-shrink-0 mx-auto md:mx-0">
+          <img src="produto1.png" alt="Capa do livro SinalizaAção — Animais em Voga" class="rounded-lg w-full h-auto object-cover shadow-md">
+        </div>
+
+        <!-- Texto e CTA -->
+        <div class="text-left flex-1">
+          <h3 class="text-2xl font-bold text-purple-700 mb-2">📘 Livro com AR — SinalizaAção</h3>
+          <p class="text-gray-700 mb-4">
+            Livro impresso com texturas táteis e experiências em Realidade Aumentada via aplicativo InclusiVR.
+            Ideal para crianças de 5–8 anos — inclui minijogos e um jogo de cartas complementar.
+          </p>
+
+          <ul class="text-sm text-gray-700 mb-6 list-disc list-inside space-y-1">
+            <li>Texturas táteis para estímulo sensorial</li>
+            <li>Animações 3D dos sinais ativadas por AR</li>
+            <li>Material pedagógico co-criado com especialistas em LIBRAS</li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 items-start sm:items-center">
+            <button class="px-6 py-3 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition" aria-label="Comprar livro SinalizaAção">
+              Comprar agora
+            </button>
+
+            <a href="#contato" class="text-purple-600 font-semibold hover:underline">Contato B2B</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- Veja nosso App (nova parte) -->
+<section id="veja-app" class="py-20 bg-gradient-to-b from-white to-purple-50">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-8">📱 Veja nosso App</h2>
 
-              
+    <div class="bg-white rounded-xl shadow-lg p-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Texto -->
+        <div class="order-2 md:order-1">
+          <p class="text-gray-700 text-lg mb-4">
+            Nosso app é utilizado para a experiência em Realidade Aumentada do livro e conta com jogos exclusivos para jogar com as cartas.
+          </p>
 
+          <p class="text-gray-600 mb-6">
+            Ative as animações 3D dos sinais apontando a câmera para as páginas e acesse minijogos que reforçam o aprendizado de forma lúdica.
+          </p>
 
+          <!-- Botões de download (placeholders) -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <!-- Google Play (SVG Badge) -->
+            <a href="#" role="button" aria-label="Download no Google Play" class="inline-flex items-center gap-3 px-4 py-3 bg-gray-900 text-white rounded-lg shadow hover:opacity-90 transition">
+              <!-- Google Play icon -->
+              <svg class="h-6 w-6" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M325.3 234.3L104.6 18.2C95.3 9.7 82.4 7.8 71.8 12.5 57.7 18.5 48 33.5 48 50.8v410.4c0 17.3 9.7 32.3 23.8 38.4 6.1 2.4 12.6 3.6 19 3.6 8.2 0 16.4-2.1 23.8-6.3l220.7-216.1c6.6-6.4 6.6-16.9 0-23.6zM384.9 256L432 215.4c6.4-5.1 8.6-14.6 5.5-22.1-3.1-7.5-10.9-12.2-19.1-11.4L325.3 234.3 384.9 256z" />
+              </svg>
+              <span class="text-left">
+                <div class="text-xs">Disponível em</div>
+                <div class="font-semibold">Google Play</div>
+              </span>
+            </a>
 
-              <section id="contato" class="py-24 bg-gradient-to-b from-white to-purple-50">
-                <div class="container mx-auto px-6 max-w-5xl">
-                  <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-4">📬 Fale com a gente</h2>
-                  <p class="text-center text-gray-700 text-lg mb-12">
-                    Quer fazer parte da nossa comunidade? Cadastre seu e-mail e acompanhe de perto o mundo mágico da LIBRAS e da realidade aumentada! 💫
-                  </p>
-              
-                  <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Formulário -->
-                    <div class="bg-white rounded-xl shadow-xl p-8">
-                      <h3 class="text-2xl font-bold text-purple-700 mb-4">Cadastre-se e receba:</h3>
-                      <ul class="list-disc list-inside text-gray-700 mb-6 space-y-1">
-                        <li>Conteúdo exclusivo e bastidores</li>
-                        <li>Convites para entrevistas e testes</li>
-                        <li><span class="font-semibold text-purple-700">10% de desconto</span> na sua primeira compra</li>
-                      </ul>
-              
-                      <form class="space-y-4">
-                        <input type="text" placeholder="Nome completo" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                        <input type="email" placeholder="Seu e-mail" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                        <input type="tel" placeholder="Telefone (opcional)" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                        <button type="submit" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition">Quero fazer parte ✨</button>
-                      </form>
-                    </div>
-              
-                    <!-- Informações de contato e redes -->
-                    <div class="flex flex-col justify-center items-start space-y-6">
-                      <div>
-                        <h4 class="text-xl font-bold text-purple-800 mb-2">📧 E-mail</h4>
-                        <p class="text-gray-700">contato@inclusivr.com.br</p>
-                      </div>
-              
-                      <div>
-                        <h4 class="text-xl font-bold text-purple-800 mb-2">📌 Redes Sociais</h4>
-                        <div class="flex space-x-4">
-                          <a href="#" class="text-purple-600 hover:text-purple-800 text-lg font-semibold">Instagram</a>
-                          <span>|</span>
-                          <a href="#" class="text-purple-600 hover:text-purple-800 text-lg font-semibold">TikTok</a>
-                          <span>|</span>
-                          <a href="#" class="text-purple-600 hover:text-purple-800 text-lg font-semibold">YouTube</a>
-                        </div>
-                      </div>
-              
-                      <div>
-                        <h4 class="text-xl font-bold text-purple-800 mb-2">💬 Quer conversar?</h4>
-                        <p class="text-gray-700">
-                          Estamos sempre abertos a parcerias, entrevistas, feedbacks e novas ideias!
-                          Sua opinião nos ajuda a crescer com propósito.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+            <!-- App Store (SVG Badge) -->
+            <a href="#" role="button" aria-label="Download na App Store" class="inline-flex items-center gap-3 px-4 py-3 bg-black text-white rounded-lg shadow hover:opacity-90 transition">
+              <!-- Apple icon -->
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M16.365 1.43c0 1.02-.37 2.03-1.08 2.84-.73.82-1.8 1.51-3.02 1.29-.09-.01-.18-.02-.27-.03-.47-.05-.9-.28-1.24-.61-.34-.34-.57-.77-.62-1.24-.01-.09-.02-.18-.03-.27.22-1.23.07-2.31-.75-3.04C9.45.88 8.45.5 7.43.5 6.93.5 6.45.56 6 .68c-.48.12-.95.3-1.39.54-.32.17-.6.37-.86.59C1.85 3.42.5 5.98.5 8.5c0 2.63 1.09 5.05 2.7 6.75 1.48 1.56 3.56 2.78 5.39 2.78.42 0 .84-.05 1.26-.15 1.23-.26 2.38-1.01 3.25-1.9.23-.24.43-.5.61-.78.16-.25.35-.48.57-.69.31-.3.67-.52 1.08-.62.06-.01.13-.02.19-.02 1.04.03 2.08.73 2.84 1.62.32.35.6.73.82 1.14.07.12.13.24.19.36.34.75.9 1.35 1.6 1.74.33.18.67.33 1.03.43.25.07.5.12.76.12 1.23 0 2.46-.72 3.16-1.93.92-1.69 1.78-4.13 1.78-6.26 0-2.64-1.12-5.11-2.78-6.81-1.57-1.61-3.64-2.9-5.44-2.9-.37 0-.73.04-1.08.12-.78.18-1.47.56-2.06 1.08-.47.42-.79 1.03-.92 1.71z"/>
+              </svg>
+              <span class="text-left">
+                <div class="text-xs">Baixe na</div>
+                <div class="font-semibold">App Store</div>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mockup do app -->
+        <div class="order-1 md:order-2 flex justify-center md:justify-end">
+          <!-- Substitua "app-mockup.png" com seu mockup real -->
+          <div class="w-56">
+            <div class="rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+              <img src="app-mockup.png" alt="Mockup do aplicativo InclusiVR" class="w-full h-auto object-cover">
+            </div>
+            <p class="text-xs text-gray-500 text-center mt-2">Mockup do app — substituir</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <!-- Newsletter -->
+        <section id="newsletter" class="py-24 bg-gradient-to-b from-purple-50 to-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-4">📬 Newsletter InclusiNews</h2>
+                <p class="text-center text-gray-600 text-lg mb-10 max-w-2xl mx-auto">Assine nossa newsletter e acompanhe novidades, bastidores e histórias mágicas da InclusiVR!</p>
+
+                <div class="max-w-xl mx-auto mb-16">
+                    <form class="flex flex-col sm:flex-row items-center gap-4" onsubmit="event.preventDefault(); alert('Obrigado! Em breve enviaremos novidades.');">
+                        <input type="email" placeholder="Digite seu e-mail" class="flex-1 px-4 py-3 rounded-full border border-purple-300 focus:ring-2 focus:ring-purple-500" required>
+                        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition shadow-md">Assinar</button>
+                    </form>
                 </div>
-              </section>
-              
+
+                <div class="mt-16 text-center">
+                    <p class="text-gray-500 text-sm mb-4">📌 Receba as próximas edições diretamente no seu e-mail</p>
+                    <p class="text-gray-500 text-sm mb-6">Fique ligado nas novidades mágicas da InclusiVR.</p>
+                    <a href="#contato" class="bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 shadow-md">Assinar Newsletter</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="py-24 bg-gradient-to-b from-white to-purple-50">
+            <div class="container mx-auto px-6 max-w-5xl">
+                <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-4">📬 Fale com a gente</h2>
+                <p class="text-center text-gray-700 text-lg mb-12">Quer fazer parte da nossa comunidade? Cadastre seu e-mail e acompanhe de perto o mundo mágico da LIBRAS e da realidade aumentada! 💫</p>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white rounded-xl shadow-xl p-8">
+                        <h3 class="text-2xl font-bold text-purple-700 mb-4">Cadastre-se e receba:</h3>
+                        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-1">
+                            <li>Conteúdo exclusivo e bastidores</li>
+                            <li>Convites para entrevistas e testes</li>
+                            <li><span class="font-semibold text-purple-700">10% de desconto</span> na sua primeira compra</li>
+                        </ul>
+
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato.');">
+                            <input type="text" placeholder="Nome completo" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            <input type="email" placeholder="Seu e-mail" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                            <input type="tel" placeholder="Telefone (opcional)" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                            <button type="submit" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition">Quero fazer parte ✨</button>
+                        </form>
+                    </div>
+
+                    <div class="flex flex-col justify-center items-start space-y-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-purple-800 mb-2">📧 E-mail</h4>
+                            <p class="text-gray-700">contato@inclusivr.com.br</p>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-bold text-purple-800 mb-2">📌 Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-purple-600 hover:text-purple-800 text-lg font-semibold">Instagram</a>
+                                <span>|</span>
+                                <a href="#" class="text-purple-600 hover:text-purple-800 text-lg font-semibold">TikTok</a>
+                                <span>|</span>
+                                <a href="#" class="text-purple-600 hover:text-purple-800 text-lg font-semibold">YouTube</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-bold text-purple-800 mb-2">💬 Quer conversar?</h4>
+                            <p class="text-gray-700">Estamos abertos a parcerias, entrevistas, feedbacks e novas ideias! Sua opinião nos ajuda a crescer com propósito.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (simples) -->
+    <footer class="bg-white border-t mt-8">
+        <div class="container mx-auto px-6 py-6 text-center text-sm text-gray-500">
+            © <span id="year"></span> InclusiVR — Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Atualiza ano do rodapé
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            mobileBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        });
+
+        // Fecha menu mobile ao clicar em um link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Fechar menu mobile ao clicar fora (opcional leve)
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden')) {
+                const target = e.target;
+                if (!mobileMenu.contains(target) && !mobileBtn.contains(target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
