@@ -4,7 +4,7 @@ body {
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    background: linear-gradient(135deg, #ac2fed 0%, #ac2fed 100%);
 }
 
 .card-hover:hover {
