@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content='width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=yes'>
-    <title>InclusiVR| Libros</title>
+  <meta name="viewport" content='width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=yes'>
+    <title>SinalizAção | Libros</title>
     <link rel="stylesheet" href="TemplateData/style.css">
-    <style>
+     <style>
         html {
             height: -webkit-fill-available;
         }
@@ -96,13 +96,14 @@
 		<imagetarget id='urso' src='targets/urso.png'></imagetarget>
 		<imagetarget id='ursolibras' src='targets/ursolibras.png'></imagetarget>
 
-    <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
+   <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
     <!-- <video id="webcam-video" muted autoplay playsinline style="width:100%; height:100%; object-fit:cover; position:absolute"></video> -->
     <canvas id="video-canvas" style="width:100%; height:100%; object-fit:cover; position:absolute"></canvas>
  <div id="startARDiv" class="ctaDiv">
         <select id="chooseCamSel" style="display: none;" onchange="SelectCam()"></select>
-       <p style="text-align: center; width:60vw;">Autorize o acesso a sua câmera abaixo:</p>
-             <p style="text-align: center; width:60vw;">Iremos preparar sua experiência. Em alguns dispositivos, esse processo pode levar alguns instantes.</p>        <button id="startARButton" onclick="StartAR()" style="display:none">Eu autorizo e estou ciente!</button>
+        <p style="text-align: center; width:60vw;">Autorize o acesso a sua câmera abaixo:</p>
+             <p style="text-align: center; width:60vw;">Esteja ciente que o primeiro acesso pode levar até um minuto para carregar conforme o processador de seu dispositivo.</p>
+        <button id="startARButton" onclick="StartAR()" style="display:none">Eu autorizo e estou ciente!</button>
     </div>
     <div id="screenshotDiv" style="display: none;" class="ctaDiv">
         <div style="position:relative; background-color:white; padding:10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
@@ -124,29 +125,19 @@
     </div>
     <div id="unity-container" class="unity-mobile">
         <canvas id="unity-canvas" style="width: 100%; height: 100%; background: #0000; z-index: -99"></canvas>
+        <div id="unity-loading-bar">
+            <div id="unity-logo"></div>
+            <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+               <p style="text-align: center; width:60vw;">O primeiro carregamento pode demorar dependendo do dispositvo, favor aguarde...</p>
 
-<div id="unity-loading-bar">
-
-    <img id="unity-logo" src="TemplateData/unity-logo-light1.png">
-
-    <div id="unity-progress-bar-empty">
-        <div id="unity-progress-bar-full"></div>
+            </div>
+        </div>
+        <canvas id="video-canvas"></canvas>
     </div>
-
-    <div id="unity-progress-text">
-        0%
-    </div>
-
-    <p id="loading-message" class="loading-message"></p>
-
-</div> <!-- fecha unity-loading-bar -->
-
-</div> <!-- fecha unity-container -->
-
-    
     <script src="arcamera.js" type="text/javascript"></script>
     <script src="itracker.js" type="text/javascript"></script>
-    <script src="Build/libras.loader.js"></script>
+    <script src="Build/libros.loader.js"></script>
     <script>
             var initialize = async() =>{
                 var unityCanvas = document.querySelector("#unity-canvas");
@@ -170,221 +161,16 @@
             var container = document.querySelector("#unity-container");
             var canvas = document.querySelector("#unity-canvas");
             var loadingBar = document.querySelector("#unity-loading-bar");
-var progressBarFull = document.querySelector("#unity-progress-bar-full");
-var progressText = document.querySelector("#unity-progress-text");
-
-// FRASES TROCANDO 
-
-var loadingMessage = document.querySelector("#loading-message");
-
-
-const loadingMessages = [
-
-"A abelha está produzindo mel... 🐝",
-
-"A Aia está escovando os dentes... 🪥",
-
-"O Seu Zé está abrindo os portões do zoológico... 🚪",
-
-"A onça está acordando... 🐆",
-
-"O urso está espreguiçando... 🐻",
-
-"A iguana está tomando banho de sol... 🦎",
-
-"Organizando os animais... 🐾",
-
-"Preparando os sinais em Libras... 🤟",
-
-"Separando as letras... 🔤",
-
-"Os animais estão treinando Libras... 😊",
-
-"A câmera está se preparando... 📷",
-
-"Quase tudo pronto... ✨",
-
-"Ensinando a abelha a sinalizar... 🐝",
-
-"O elefante está ensaiando... 🐘",
-
-"Conferindo se todos chegaram... 👋",
-
-"Preparando uma aventura... 🌟",
-
-"Organizando a floresta... 🌳",
-
-"Reunindo os amigos do zoológico... 🦒",
-
-"Falta bem pouquinho... 💛",
-
-"Vamos começar em instantes! 🚀"
-
-];
-
-let messageTimer = null;
-
-// embaralhar mensagens 
-
-function Shuffle(array){
-
-    for(let i = array.length - 1; i > 0; i--){
-
-        const j = Math.floor(Math.random() * (i + 1));
-
-        [array[i], array[j]] = [array[j], array[i]];
-
-    }
-
-    return array;
-
-}
-
-let shuffledMessages = Shuffle([...loadingMessages]);
-
-let currentMessage = 0;
-
-function NextLoadingMessage(){
-
-    if(currentMessage >= shuffledMessages.length){
-
-        shuffledMessages = Shuffle([...loadingMessages]);
-
-        currentMessage = 0;
-
-    }
-
-    return shuffledMessages[currentMessage++];
-
-}
-
-
-//  IMAGENS SPRITES INICANDO COMECA 
-
-
-const loadingFrames = [
-    "TemplateData/unity-logo-light1.png",
-    "TemplateData/unity-logo-light2.png",
-    "TemplateData/unity-logo-light3.png",
-    "TemplateData/unity-logo-light4.png",
-    "TemplateData/unity-logo-light5.png",
-    "TemplateData/unity-logo-light6.png"
-];
-
-let currentFrame = 0;
-let loadingAnimation = null;
-
-function StartLoadingAnimation() {
-
-    const logo = document.getElementById("unity-logo");
-
-    loadingAnimation = setInterval(() => {
-
-    currentFrame = (currentFrame + 1) % loadingFrames.length;
-
-    console.log("Frame:", currentFrame);
-
-    logo.src = loadingFrames[currentFrame];
-
-}, 200);
-
-}
-
-function StopLoadingAnimation() {
-
-    clearInterval(loadingAnimation);
-
-}
-
-//  LOADING FALSO DE PORCENTAGEM COMECA 
-
-let fakeProgress = 0;
-progressBarFull.style.width = "0%";
-progressText.innerText = "0%";
-
-let fakeLoading = null;
-
-
-function StartFakeLoading(){
-
-
-        loadingMessage.innerText = NextLoadingMessage();
-
-
-
-    fakeProgress = 0;
-
-    
-
-    progressBarFull.style.width = "0%";
-    progressText.innerText = "0%";
-
-    fakeLoading = setInterval(() => {
-
-        if(fakeProgress < 90){
-
-            fakeProgress++;
-
-            progressBarFull.style.width = fakeProgress + "%";
-            progressText.innerText = fakeProgress + "%";
-        }
-
-    },80);
-
-    messageTimer = setInterval(()=>{
-
-    loadingMessage.style.opacity = 0;
-
-    setTimeout(()=>{
-
-        loadingMessage.innerText = NextLoadingMessage();
-
-        loadingMessage.style.opacity = 1;
-
-    },250);
-
-},3000);
-
-}
-
-function FinishLoading(){
-
-    clearInterval(messageTimer);
-
-    clearInterval(fakeLoading);
-
-    let finish = setInterval(() => {
-
-        if(fakeProgress >= 100){
-
-            clearInterval(finish);
-
-            loadingBar.style.display = "none";
-
-            return;
-
-        }
-
-        fakeProgress++;
-
-        progressBarFull.style.width = fakeProgress + "%";
-
-        progressText.innerText = fakeProgress + "%";
-
-    },25);
-
-}
-
-
+            var progressBarFull = document.querySelector("#unity-progress-bar-full");
             function StartAR() {
                 canvas.style.width = window.innerWidth + "px";
                 canvas.style.height = window.innerHeight + "px";
                 
                 document.getElementById("startARDiv").style.display = "none";
                 createUnityInstance(document.querySelector("#unity-canvas"), {
-                    dataUrl: "Build/libras.data",
-                    frameworkUrl: "Build/libras.framework.js",
-                    codeUrl: "Build/libras.wasm",
+                    dataUrl: "Build/libros.data",
+                    frameworkUrl: "Build/libros.framework.js",
+                    codeUrl: "Build/libros.wasm",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "InclusiVR",
                     productName: "Libros",
@@ -393,18 +179,15 @@ function FinishLoading(){
                     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
                     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
                     },
- (progress) => {}
+                    (progress) => {
+                        progressBarFull.style.width = 100 * progress + "%";
+                    }
                 ).then((unityInstance) => {
-window.unityInstance = unityInstance;
-RequestWebcam();
-
-StopLoadingAnimation();
-FinishLoading();
-
+                    window.unityInstance = unityInstance;
+                    RequestWebcam();
+                    loadingBar.style.display = "none";
                 });
                 loadingBar.style.display = "block";
-                StartFakeLoading();
-                StartLoadingAnimation();
             }
             //Set Facing Mode here ('environment', 'user', '')
 		window.unityFacingMode = "environment"
