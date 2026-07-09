@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content='width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=yes'>
-    <title>Unity WebGL Player | Libros</title>
+  <meta name="viewport" content='width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=yes'>
+    <title>SinalizAção | Libros</title>
     <link rel="stylesheet" href="TemplateData/style.css">
      <style>
         html {
@@ -70,39 +70,33 @@
 </head>
 <body>
     <!--IMAGETARGETS-->
-		<imagetarget id='bear' src='targets/bear.png'></imagetarget>
-		<imagetarget id='bfly' src='targets/bfly.png'></imagetarget>
-		<imagetarget id='flower' src='targets/flower.png'></imagetarget>
-		<imagetarget id='lady' src='targets/lady.png'></imagetarget>
-		<imagetarget id='reel' src='targets/reel.png'></imagetarget>
-		<imagetarget id='rmn' src='targets/rmn.png'></imagetarget>
-		<imagetarget id='abelha' src='targets/abelha.png'></imagetarget>
-		<imagetarget id='abelha' src='targets/abelha.png'></imagetarget>
-		<imagetarget id='naygato' src='targets/naygato.jpg'></imagetarget>
-		<imagetarget id='abelhav2' src='targets/abelha.png'></imagetarget>
-		<imagetarget id='Elefante' src='targets/Elefante.png'></imagetarget>
-		<imagetarget id='iguana' src='targets/iguana.png'></imagetarget>
-		<imagetarget id='onça' src='targets/onça.png'></imagetarget>
-		<imagetarget id='urso' src='targets/urso.png'></imagetarget>
 		<imagetarget id='xabelha' src='targets/xabelha.png'></imagetarget>
 		<imagetarget id='xelefante' src='targets/xelefante.png'></imagetarget>
 		<imagetarget id='xiguana' src='targets/xiguana.png'></imagetarget>
 		<imagetarget id='xonca' src='targets/xonca.png'></imagetarget>
 		<imagetarget id='xurso' src='targets/xurso.png'></imagetarget>
-		<imagetarget id='ALibras' src='targets/ALibras.png'></imagetarget>
-		<imagetarget id='ALibras' src='targets/ALibras.png'></imagetarget>
-		<imagetarget id='ALibras' src='targets/ALibras.png'></imagetarget>
-		<imagetarget id='ELibras' src='targets/ELibras.png'></imagetarget>
-		<imagetarget id='ILibras' src='targets/ILibras.png'></imagetarget>
-		<imagetarget id='OLibras' src='targets/OLibras.png'></imagetarget>
-		<imagetarget id='ULibras' src='targets/ULibras.png'></imagetarget>
-		<imagetarget id='Abelhalibras' src='targets/Abelhalibras.png'></imagetarget>
+		<imagetarget id='abelha' src='targets/abelha.png'></imagetarget>
+		<imagetarget id='abelhalibras' src='targets/abelhalibras.png'></imagetarget>
+		<imagetarget id='aletra' src='targets/aletra.png'></imagetarget>
+		<imagetarget id='alibras' src='targets/alibras.png'></imagetarget>
+		<imagetarget id='elefante' src='targets/elefante.png'></imagetarget>
 		<imagetarget id='elefantelibras' src='targets/elefantelibras.png'></imagetarget>
+		<imagetarget id='eletra' src='targets/eletra.png'></imagetarget>
+		<imagetarget id='elibras' src='targets/elibras.png'></imagetarget>
+		<imagetarget id='iguana' src='targets/iguana.png'></imagetarget>
 		<imagetarget id='iguanalibras' src='targets/iguanalibras.png'></imagetarget>
+		<imagetarget id='iletra' src='targets/iletra.png'></imagetarget>
+		<imagetarget id='ilibras' src='targets/ilibras.png'></imagetarget>
+		<imagetarget id='oletra' src='targets/oletra.png'></imagetarget>
+		<imagetarget id='olibras' src='targets/olibras.png'></imagetarget>
+		<imagetarget id='onca' src='targets/onca.png'></imagetarget>
 		<imagetarget id='oncalibras' src='targets/oncalibras.png'></imagetarget>
+		<imagetarget id='uletra' src='targets/uletra.png'></imagetarget>
+		<imagetarget id='ulibras' src='targets/ulibras.png'></imagetarget>
+		<imagetarget id='urso' src='targets/urso.png'></imagetarget>
 		<imagetarget id='ursolibras' src='targets/ursolibras.png'></imagetarget>
 
-    <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
+   <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
     <!-- <video id="webcam-video" muted autoplay playsinline style="width:100%; height:100%; object-fit:cover; position:absolute"></video> -->
     <canvas id="video-canvas" style="width:100%; height:100%; object-fit:cover; position:absolute"></canvas>
  <div id="startARDiv" class="ctaDiv">
@@ -143,7 +137,7 @@
     </div>
     <script src="arcamera.js" type="text/javascript"></script>
     <script src="itracker.js" type="text/javascript"></script>
-    <script src="Build/buildlibros.loader.js"></script>
+    <script src="Build/libros.loader.js"></script>
     <script>
             var initialize = async() =>{
                 var unityCanvas = document.querySelector("#unity-canvas");
@@ -174,9 +168,9 @@
                 
                 document.getElementById("startARDiv").style.display = "none";
                 createUnityInstance(document.querySelector("#unity-canvas"), {
-                    dataUrl: "Build/buildlibros.data",
-                    frameworkUrl: "Build/buildlibros.framework.js",
-                    codeUrl: "Build/buildlibros.wasm",
+                    dataUrl: "Build/libros.data",
+                    frameworkUrl: "Build/libros.framework.js",
+                    codeUrl: "Build/libros.wasm",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "InclusiVR",
                     productName: "Libros",
