@@ -1,897 +1,928 @@
 <!DOCTYPE html>
-<script src="main.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-<html lang="pt-BR">
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InclusiVR — Tecnologia imersiva para o ensino de LIBRAS</title>
+  <meta name="description" content="A InclusiVR desenvolve soluções em Realidade Aumentada e Realidade Virtual que tornam o ensino de LIBRAS mais acessível, imersivo e envolvente para famílias, escolas e instituições.">
+  <meta name="theme-color" content="#05061a">
+  <meta name="color-scheme" content="dark">
+  <script>document.documentElement.classList.add('js')</script>
 
-  <title>InclusiVR - Tecnologia Imersiva para Ensino de LIBRAS</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="InclusiVR">
+  <meta property="og:title" content="InclusiVR — Tecnologia imersiva para o ensino de LIBRAS">
+  <meta property="og:description" content="Realidade Aumentada, Realidade Virtual e livros interativos para conectar mundos por meio das línguas de sinais.">
+  <meta property="og:image" content="assets/img/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Lottie -->
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="modulepreload" href="assets/vendor/three/three.module.min.js">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/vendor/three/three.module.min.js",
+        "three/addons/": "./assets/vendor/three/addons/"
+      }
+    }
+  </script>
 
-  <!-- JS -->
-  <script src="main.js" defer></script>
-
-  <meta name="description" content="InclusiVR — soluções em AR/VR para ensino de LIBRAS." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "InclusiVR",
+      "description": "Startup de tecnologia imersiva (AR/VR) para o ensino de LIBRAS.",
+      "email": "contato@inclusivr.com.br",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-16-99400-2335",
+        "contactType": "customer service",
+        "availableLanguage": ["Portuguese", "Brazilian Sign Language"]
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-purple-50">
-
- <!-- Header / Navigation -->
-<header
-  class="sticky top-0 z-50
-         bg-white/80 backdrop-blur-md
-         border-b border-purple-100">
-
-  <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-
-    <!-- LOGO -->
-    <div class="flex items-center">
-      <a href="#home" class="flex items-center text-3xl font-bold text-purple-600">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             class="h-10 w-10 mr-2"
-             viewBox="0 0 20 20"
-             fill="currentColor"
-             aria-hidden="true">
-          <path fill-rule="evenodd"
-                d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v8l4-2 4 2V6z"
-                clip-rule="evenodd" />
-        </svg>
-        Inclusi<span class="text-indigo-600">VR</span>
-      </a>
-    </div>
-
-    <!-- MENU DESKTOP -->
-    <div class="hidden md:flex space-x-8 items-center">
-
-      <!-- Link -->
-      <a href="#home"
-         class="relative font-semibold text-gray-700
-                hover:text-purple-700 transition
-                after:absolute after:-bottom-1 after:left-0
-                after:h-[2px] after:w-0 after:bg-purple-600
-                after:transition-all hover:after:w-full">
-        Início
-      </a>
-
-      <a href="#produtos" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-        Livro
-      </a>
-
-      <a href="#quem-somos" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-        Quem Somos
-      </a>
-
-      <a href="#roadmap" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-        Roadmap
-      </a>
-
-  <a href="#loja" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-      Loja
-      </a>
-
-  <a href="#veja-app" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-      App
-      </a>
-
-      <a href="#newsletter" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-        Newsletter
-      </a>
-
-      <a href="#contato" class="relative font-semibold text-gray-700 hover:text-purple-700 transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-purple-600 after:transition-all hover:after:w-full">
-        Contato
-      </a>
-
- 
-    </div>
-
-    <!-- BOTÃO MOBILE -->
-    <div class="md:hidden">
-      <button id="mobile-menu-button"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              class="text-gray-700 hover:text-purple-600 p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             class="h-6 w-6"
-             fill="none"
-             viewBox="0 0 24 24"
-             stroke="currentColor"
-             aria-hidden="true">
-          <path stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <span class="sr-only">Abrir menu</span>
-      </button>
-    </div>
-
-  </nav>
-
-  <!-- MENU MOBILE -->
-  <div id="mobile-menu"
-       class="hidden md:hidden
-              bg-white/95 backdrop-blur-md
-              shadow-lg absolute w-full left-0">
-
-    <div class="flex flex-col space-y-4 px-6 py-6">
-
-      <a href="#home" class="font-semibold text-gray-700 hover:text-purple-600">Início</a>
-      <a href="#produtos" class="font-semibold text-gray-700 hover:text-purple-600">Livro</a>
-      <a href="#quem-somos" class="font-semibold text-gray-700 hover:text-purple-600">Quem Somos</a>
-      <a href="#roadmap" class="font-semibold text-gray-700 hover:text-purple-600">Roadmap</a>
-      <a href="#loja" class="font-semibold text-gray-700 hover:text-purple-600">Loja</a>
-      <a href="#veja-app" class="font-semibold text-gray-700 hover:text-purple-600">App</a>
-      <a href="#newsletter" class="font-semibold text-gray-700 hover:text-purple-600">Newsletter</a>
-      <a href="#contato" class="font-semibold text-gray-700 hover:text-purple-600">Contato</a>
-
- 
-
-    </div>
-  </div>
-</header>
-
-
- <section
-  id="home"
-  class="min-h-screen relative overflow-hidden
-         bg-[url('back1.jpg')] bg-cover bg-center bg-no-repeat">
-
-  <!-- overlay opcional (recomendado) -->
-  <div class="absolute inset-0 bg-black/40"></div>
-
-  <div
-    class="container mx-auto px-4 py-20 md:py-32
-           relative z-10
-           flex flex-col md:flex-row
-           items-center justify-between gap-12">
-
-    <!-- ESQUERDA: LOGO -->
-    <div class="flex-shrink-0 flex justify-center md:justify-start">
-      <img
-        src="logo.png"
-        alt="Logo InclusiVR"
-        class="h-40 sm:h-56 md:h-64 lg:h-80 object-contain"
-      />
-    </div>
-
-    <!-- DIREITA: TEXTO + BOTÕES -->
- <div class="flex flex-col items-center text-center max-w-xl
-            md:-ml-16 lg:-ml-24">
-
-
-      <!-- TEXTO -->
-<p class="text-white font-extrabold
-          text-3xl sm:text-4xl md:text-5xl
-          leading-tight mb-10
-          drop-shadow-lg max-w-xl">
-  Conectando mundos<br>
-  por meio das línguas de sinais<br>
-  e tecnologia.
-</p>
-
-      <!-- BOTÕES -->
-<div class="flex flex-col sm:flex-row gap-6 justify-center">
-
-  <!-- Botão 1 -->
-  <a
-    href="#produtos"
-    class="px-10 py-4 rounded-full
-           font-bold text-lg text-white
-           bg-[#15b0ff]
-           shadow-[0_0_30px_rgba(21,176,255,0.6)]
-           hover:scale-105 transition">
-    Conheça nossos produtos
-  </a>
-
-  <!-- Botão 2 -->
-  <a
-    href="#loja"
-    class="px-10 py-4 rounded-full
-           font-bold text-lg text-white
-           bg-[#ac2fed]
-           shadow-[0_0_30px_rgba(172,47,237,0.6)]
-           hover:scale-105 transition">
-    Compre agora!
-  </a>
-
-
-</div>
-
-
-    </div>
-  </div>
-
-<!-- Scroll Indicator -->
-<div
-  class="absolute bottom-8 left-1/2 -translate-x-1/2
-         z-20 pointer-events-none">
-
-  <svg xmlns="http://www.w3.org/2000/svg"
-       class="h-10 w-10 text-purple-400 animate-bounce"
-       fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+<body>
+  <!-- Ícones (sprite) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+      <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></symbol>
+      <symbol id="i-vr" viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h13A2.5 2.5 0 0 1 21 8.5v6a2.5 2.5 0 0 1-2.5 2.5h-3.2a2 2 0 0 1-1.7-.95l-.9-1.45a.8.8 0 0 0-1.4 0l-.9 1.45a2 2 0 0 1-1.7.95H5.5A2.5 2.5 0 0 1 3 14.5z"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-game" viewBox="0 0 24 24"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.6 9.42 2 14.46 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.83 16h4.34a2 2 0 0 1 1.41.59L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.55-.6-6.58-.69-7.26A4 4 0 0 0 17.32 5z"/></symbol>
+      <symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+      <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+      <symbol id="i-max" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+      <symbol id="i-orbit" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></symbol>
+      <symbol id="i-move" viewBox="0 0 24 24"><path d="m5 9-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6.5L4.5 19A2 2 0 0 0 6.2 22h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M7 15h10"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+      <symbol id="i-qr" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M16 3a5 5 0 0 0 5 5M16 3v11.5a4.5 4.5 0 1 1-4.5-4.5"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9a11.82 11.82 0 0 0-3.48-8.41Z"/></symbol>
+    </defs>
   </svg>
-</div>
 
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-</section>
+  <!-- Tradutor Google (oculto — controlado pelo seletor de idiomas) -->
+  <div id="google_translate_element" class="gt-host" aria-hidden="true"></div>
 
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a href="#inicio" class="brand notranslate" aria-label="InclusiVR — início">
+        <img src="assets/img/logo-mark.webp" alt="" width="34" height="58" class="brand__mark">
+        <span class="brand__word">Inclusi<span>VR</span></span>
+      </a>
 
-   
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#solucoes" class="nav__link">Soluções</a>
+        <a href="#produto" class="nav__link">Produto</a>
+        <a href="#estudio" class="nav__link">Estúdio 3D</a>
+        <a href="#ar" class="nav__link">Realidade Aumentada</a>
+        <a href="#empresa" class="nav__link">Empresa</a>
+        <a href="#jornada" class="nav__link">Jornada</a>
+      </nav>
 
-<section id="produtos" class="py-24 bg-gradient-to-b from-white to-purple-50">
-  <div class="min-h-screen relative overflow-hidden
-              bg-[url('back2.jpg')] bg-cover bg-center bg-no-repeat">
-
-    <div class="container mx-auto px-4 py-24 relative z-10">
-
-      <!-- TÍTULO -->
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-12
-                 text-gray-900 text-center tracking-tight">
-        Livro SinalizaAção – Animais em Voga
-      </h2>
-
-      <!-- TEXTO + IMAGEM -->
-      <div class="flex flex-col lg:flex-row items-start gap-16 max-w-6xl mx-auto">
-
-        <!-- TEXTO -->
-        <div class="flex-1 text-left text-gray-700 space-y-5 max-w-xl">
-
-          <p class="text-[#ac2fed] font-bold text-xl md:text-2xl leading-snug">
-            Tecnologias imersivas que transformam o aprendizado de LIBRAS em uma
-            experiência lúdica, visual e interativa.
-          </p>
-
-          <p class="leading-relaxed">
-            “SinalizaAção: Animais em Voga" é o primeiro livro infantil desenvolvido
-            pela InclusiVR — uma startup dedicada a unir educação inclusiva e
-            tecnologia imersiva.
-          </p>
-
-          <p class="leading-relaxed">
-            Signária é uma cidade bastante peculiar. Nela, todos os habitantes se
-            comunicam em LIBRAS. Aia, a maga, possui artefatos que transformam os
-            sinais em magia.
-          </p>
-
-          <p class="leading-relaxed">
-            O livro traz ilustrações do artista surdo Igor B., texturas táteis,
-            AR para animar sinais em 3D e um jogo de cartas para treino prático.
-          </p>
-
+      <div class="site-header__actions">
+        <div class="lang notranslate" data-lang>
+          <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Selecionar idioma" data-lang-toggle>
+            <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
+            <span data-lang-current>PT</span>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </button>
+          <ul class="lang__menu" role="listbox" aria-label="Idiomas" data-lang-menu>
+            <li><button type="button" role="option" data-lang-option="pt"><span>Português (Brasil)</span><small>PT</small></button></li>
+            <li><button type="button" role="option" data-lang-option="en"><span>English</span><small>EN</small></button></li>
+            <li><button type="button" role="option" data-lang-option="es"><span>Español</span><small>ES</small></button></li>
+            <li><button type="button" role="option" data-lang-option="fr"><span>Français</span><small>FR</small></button></li>
+            <li><button type="button" role="option" data-lang-option="de"><span>Deutsch</span><small>DE</small></button></li>
+            <li><button type="button" role="option" data-lang-option="it"><span>Italiano</span><small>IT</small></button></li>
+            <li><button type="button" role="option" data-lang-option="ja"><span>日本語</span><small>JA</small></button></li>
+            <li><button type="button" role="option" data-lang-option="zh-CN"><span>中文 (简体)</span><small>ZH</small></button></li>
+            <li><button type="button" role="option" data-lang-option="ko"><span>한국어</span><small>KO</small></button></li>
+            <li><button type="button" role="option" data-lang-option="ar"><span>العربية</span><small>AR</small></button></li>
+            <li><button type="button" role="option" data-lang-option="ru"><span>Русский</span><small>RU</small></button></li>
+            <li><button type="button" role="option" data-lang-option="hi"><span>हिन्दी</span><small>HI</small></button></li>
+          </ul>
         </div>
 
-        <!-- IMAGEM -->
-        <div class="relative flex-shrink-0 flex justify-center lg:justify-end">
-          <img
-            src="bookimage.png"
-            alt="Livro SinalizaAção – Animais em Voga"
-            class="h-72 md:h-[420px] lg:h-[520px]
-                   object-contain drop-shadow-2xl"
-          />
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-
- 
-
-
-
-      <section id="quem-somos" class="py-24 bg-purple-600">
-  <div class="container mx-auto px-4">
-
-    <!-- TÍTULO -->
-    <h2 class="text-3xl md:text-4xl font-extrabold
-               text-center mb-4 text-white">
-      Quem Somos
-    </h2>
-
-    <!-- DESCRIÇÃO -->
-    <p class="text-xl text-center text-purple-100
-              mb-16 max-w-3xl mx-auto">
-      A InclusiVR é uma startup formada por uma equipe multidisciplinar dedicada
-      a tornar o ensino de LIBRAS mais acessível, imersivo e divertido por meio
-      da tecnologia XR.
-    </p>
-
-    <!-- BLOCO CLARO DOS CARDS -->
-    <div class="bg-white/90 backdrop-blur-md
-                rounded-3xl p-8 md:p-12 mb-16">
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-                  gap-8 justify-items-center">
-
-        <!-- Card -->
-        <div class="bg-gradient-to-br from-purple-50 to-indigo-50
-                    rounded-xl shadow-lg p-6 text-center">
-          <h3 class="text-xl font-bold text-gray-800 mb-2">
-            Luciano Delphino de Azevedo Júnior
-          </h3>
-          <p class="text-purple-600 font-semibold mb-4">
-            Psicólogo e Diretor Criativo
-          </p>
-          <p class="text-gray-600">
-            Psicólogo pela UNESP, técnico em eletrônica, mestre na USP Ribeirão.
-            Responsável pela metodologia do jogo e pelo universo SinalizaAção.
-          </p>
-        </div>
-
-   <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center"> <h3 class="text-xl font-bold text-gray-800 mb-2">Maria Clara Franco Cardoso</h3> <p class="text-indigo-600 font-semibold mb-4">Socióloga e Cofundadora</p> <p class="text-gray-600">Bacharel em Ciências Sociais pela USP, especialista em pesquisa de mercado. Cofundadora da InclusiVR e gestora do projeto no NIDUS.</p> </div> <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center"> <h3 class="text-xl font-bold text-gray-800 mb-2">Victor Sad de Souza</h3> <p class="text-blue-600 font-semibold mb-4">Jurídico e Negócios</p> <p class="text-gray-600">Advogado com foco em startups e inovação. Estrutura jurídica e estratégica da InclusiVR.</p> </div> <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center"> <h3 class="text-xl font-bold text-gray-800 mb-2">Fauston</h3> <p class="text-purple-600 font-semibold mb-4">Especialista em LIBRAS</p> <p class="text-gray-600">Licenciado em Artes Cênicas (USP), professor e intérprete de LIBRAS, pesquisador da educação inclusiva.</p> </div> <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-lg p-6 card-hover transition-all duration-300 text-center"> <h3 class="text-xl font-bold text-gray-800 mb-2">Leonardo "JLeo" Martins</h3> <p class="text-indigo-600 font-semibold mb-4">Programador XR</p> <p class="text-gray-600">Desenvolvedor de experiências imersivas em XR. Responsável pela programação do jogo e integração AR/VR.</p> </div> </div> <p class="text-center text-gray-500 max-w-4xl mx-auto"></p> </div>
-
-      </div>
-    </div>
-
-    <!-- TEXTO FINAL -->
-    <p class="text-center text-purple-100 max-w-4xl mx-auto">
-      Há 3 anos desenvolvendo com parceiros e programas como USP, NIDUS, PROAC
-      e VaiTec — buscamos criar soluções disruptivas para a inclusão e ensino
-      de LIBRAS com base em testes e inovação pedagógica.
-    </p>
-
-  </div>
-</section>
-
-
-
-        
-<section id="roadmap" class="bg-[#280eaa] py-24">
-
-  <div class="container mx-auto px-4">
-
-    <!-- TÍTULO (comum a todas) -->
-    <h2 class="text-5xl font-extrabold text-center text-white mb-16">
-      Nossa Jornada
-    </h2>
-
-    <!-- ========================= -->
-    <!-- DESKTOP GRANDE (XL+) -->
-    <!-- ========================= -->
-    <div
-      class="relative mx-auto w-full max-w-7xl
-             aspect-[16/9]
-             bg-[url('back4.png')] bg-contain bg-center bg-no-repeat
-             hidden xl:block">
-
-      <!-- 2023 -->
-      <div class="absolute w-72 text-right" style="top:22%; left:9%;">
-        <h3 class="text-5xl font-extrabold text-purple-200 mb-2">2023</h3>
-        <p class="text-white text-sm leading-relaxed">
-          Surgimento da ideia na USP.<br>
-          Fundação por Maria e Luciano.<br>
-          Entrada de Victor no final do ano.
-        </p>
-      </div>
-
-      <!-- 2024 -->
-      <div class="absolute w-72 text-left" style="top:30%; left:60%;">
-        <h3 class="text-5xl font-extrabold text-purple-200 mb-2">2024</h3>
-        <p class="text-white text-sm leading-relaxed">
-          InclusiVR incubada pelo NIDUS-USP.<br>
-          Entrada de JLeo e Fauston.<br>
-          Estruturação pedagógica e testes.
-        </p>
-      </div>
-
-      <!-- 2025 -->
-      <div class="absolute w-72 text-right" style="top:48%; left:11%;">
-        <h3 class="text-5xl font-extrabold text-purple-200 mb-2">2025</h3>
-        <p class="text-white text-sm leading-relaxed">
-          Participação em editais.<br>
-          Entrada de Igor (ilustrador).<br>
-          Lançamento do primeiro livro com AR.
-        </p>
-      </div>
-
-      <!-- 2026 -->
-      <div class="absolute w-72 text-left" style="top:55%; left:67%;">
-        <h3 class="text-5xl font-extrabold text-purple-200 mb-2">2026</h3>
-        <p class="text-white text-sm leading-relaxed">
-          Desenvolvimento e lançamento do jogo VR<br>
-          com apoio de financiamento público.<br>
-          Criação de mais livros.
-        </p>
-      </div>
-
-      <!-- 2027 -->
-      <div class="absolute w-72 text-left" style="top:78%; left:42%;">
-        <h3 class="text-5xl font-extrabold text-purple-200 mb-2">2027</h3>
-        <p class="text-white text-sm leading-relaxed">
-          Tradução para inglês e lançamento<br>
-          de DLC e novos livros.
-        </p>
-      </div>
-    </div>
-
-    <!-- ========================= -->
-    <!-- DESKTOP MÉDIO / TABLET -->
-    <!-- ========================= -->
-    <div class="hidden lg:grid xl:hidden grid-cols-2 gap-12 max-w-5xl mx-auto text-white">
-
-      <div>
-        <h3 class="text-4xl font-extrabold text-purple-200">2023</h3>
-        <p class="text-sm">
-          Surgimento da ideia na USP. Fundação por Maria e Luciano.
-          Entrada de Victor no final do ano.
-        </p>
-      </div>
-
-      <div>
-        <h3 class="text-4xl font-extrabold text-purple-200">2024</h3>
-        <p class="text-sm">
-          InclusiVR incubada pelo NIDUS-USP.
-          Entrada de JLeo e Fauston.
-          Estruturação pedagógica e testes.
-        </p>
-      </div>
-
-      <div>
-        <h3 class="text-4xl font-extrabold text-purple-200">2025</h3>
-        <p class="text-sm">
-          Participação em editais.
-          Entrada de Igor.
-          Lançamento do primeiro livro com AR.
-        </p>
-      </div>
-
-      <div>
-        <h3 class="text-4xl font-extrabold text-purple-200">2026</h3>
-        <p class="text-sm">
-          Desenvolvimento e lançamento do jogo VR
-          e criação de mais livros.
-        </p>
-      </div>
-
-      <div class="col-span-2 text-center">
-        <h3 class="text-4xl font-extrabold text-purple-200">2027</h3>
-        <p class="text-sm">
-          Tradução para inglês, DLC e expansão do catálogo.
-        </p>
-      </div>
-    </div>
-
-    <!-- ========================= -->
-    <!-- MOBILE -->
-    <!-- ========================= -->
-    <div class="lg:hidden space-y-6 text-white max-w-xl mx-auto">
-
-      <div class="bg-white/10 rounded-xl p-5">
-        <h3 class="font-bold text-purple-200">2023</h3>
-        <p class="text-sm">Surgimento da ideia na USP. Fundação por Maria e Luciano.</p>
-      </div>
-
-      <div class="bg-white/10 rounded-xl p-5">
-        <h3 class="font-bold text-purple-200">2024</h3>
-        <p class="text-sm">Incubação no NIDUS-USP. Entrada de JLeo e Fauston.</p>
-      </div>
-
-      <div class="bg-white/10 rounded-xl p-5">
-        <h3 class="font-bold text-purple-200">2025</h3>
-        <p class="text-sm">Editais, entrada de Igor e lançamento do livro AR.</p>
-      </div>
-
-      <div class="bg-white/10 rounded-xl p-5">
-        <h3 class="font-bold text-purple-200">2026</h3>
-        <p class="text-sm">Desenvolvimento do jogo VR e novos livros.</p>
-      </div>
-
-      <div class="bg-white/10 rounded-xl p-5">
-        <h3 class="font-bold text-purple-200">2027</h3>
-        <p class="text-sm">Traduções, DLC e expansão internacional.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-       <!-- Loja (Parte 7) - Mantém apenas anúncio do livro + contato B2B -->
-<!-- LOJA INCLUSIVR -->
-<!-- LOJA INCLUSIVR -->
-<section id="loja" class="py-24 bg-purple-600">
-  <div class="container mx-auto px-6">
-
-    <!-- CARD BRANCO CENTRAL -->
-    <div class="relative bg-white rounded-[2.5rem] shadow-2xl
-                p-8 md:p-12
-                flex flex-col lg:flex-row items-center gap-12
-                overflow-hidden">
-
-      <!-- ESQUERDA: IMAGEM + FORMA -->
-      <div class="relative w-full lg:w-1/2 flex justify-center items-center">
-
-        <!-- FORMA AMARELA (CSS) -->
-        <div class="absolute -top-24 -left-28
-                    w-[420px] h-[420px]
-                    bg-lime-300 rounded-full
-                    z-0"></div>
-
-        <!-- IMAGEM DO PRODUTO -->
-        <img
-          src="imageloja.png"
-          alt="Livro SinalizaAção com Realidade Aumentada"
-          class="relative z-10 max-w-sm md:max-w-md lg:max-w-lg
-                 object-contain drop-shadow-2xl"
-        />
-      </div>
-
-      <!-- DIREITA: TEXTO + TÓPICOS + BOTÕES -->
-      <div class="w-full lg:w-1/2 text-left">
-
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">
-          Loja InclusiVR
-        </h2>
-
-        <h3 class="text-xl font-semibold text-purple-600 mb-6">
-          Livro com AR — SinalizaAção
-        </h3>
-
-        <p class="text-gray-700 mb-6 leading-relaxed">
-          Livro impresso com texturas táteis e experiências em Realidade Aumentada
-          via aplicativo InclusiVR. Ideal para crianças de 2–8 anos — inclui
-          minijogos e um jogo de cartas complementar.
-        </p>
-
-        <!-- TÓPICOS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-
-          <div class="bg-purple-50 rounded-xl p-4 flex items-center gap-3">
-            <span class="text-xl">🎴</span>
-            <p class="text-sm font-semibold text-gray-800">
-              Jogo de cartas educativo com versão física e digital
-            </p>
-          </div>
-
-          <div class="bg-purple-50 rounded-xl p-4 flex items-center gap-3">
-            <span class="text-xl">✋</span>
-            <p class="text-sm font-semibold text-gray-800">
-              Texturas táteis e relevos para estímulo sensorial
-            </p>
-          </div>
-
-          <div class="bg-purple-50 rounded-xl p-4 flex items-center gap-3">
-            <span class="text-xl">📱</span>
-            <p class="text-sm font-semibold text-gray-800">
-              Animações 3D dos sinais ativadas por AR
-            </p>
-          </div>
-
-          <div class="bg-purple-50 rounded-xl p-4 flex items-center gap-3">
-            <span class="text-xl">👶</span>
-            <p class="text-sm font-semibold text-gray-800">
-              Indicado para crianças de 5 a 8 anos
-            </p>
-          </div>
-
-        </div>
-
-        <!-- BOTÕES -->
-        <div class="flex flex-col sm:flex-row gap-4">
-
-          <a href="https://loja.inclusivr.com.br/"
-             class="px-8 py-4 bg-purple-600 text-white rounded-full
-                    font-bold text-lg hover:bg-purple-700
-                    transition text-center"
-             aria-label="Ir para a loja InclusiVR">
-            Comprar agora!
-          </a>
-
-          <a href="#contato"
-             class="px-8 py-4 border-2 border-purple-600
-                    text-purple-600 rounded-full
-                    font-bold text-lg hover:bg-purple-50
-                    transition text-center">
-            Contato B2B
-          </a>
-
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Veja nosso App (nova parte) -->
-<section id="veja-app" class="py-20 bg-gradient-to-b from-white to-purple-50">
-  <div class="container mx-auto px-6 max-w-6xl">
-    <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-8">Veja nosso App</h2>
-
-    <div class="bg-white rounded-xl shadow-lg p-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <!-- Texto -->
-        <div class="order-2 md:order-1">
-          <p class="text-gray-700 text-lg mb-4">
-            Nosso app é utilizado para a experiência em Realidade Aumentada do livro e conta com jogos exclusivos para jogar com as cartas.
-          </p>
-
-          <p class="text-gray-600 mb-6">
-            Ative as animações 3D dos sinais apontando a câmera para as páginas e acesse minijogos que reforçam o aprendizado de forma lúdica.
-          </p>
-
-          <!-- Botões de download (placeholders) -->
-          <div class="flex flex-col sm:flex-row gap-4">
-            <!-- Google Play (SVG Badge) -->
-            <a href="#" role="button" aria-label="Download no Google Play" class="inline-flex items-center gap-3 px-4 py-3 bg-gray-900 text-white rounded-lg shadow hover:opacity-90 transition">
-              <!-- Google Play icon -->
-              <svg class="h-6 w-6" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M325.3 234.3L104.6 18.2C95.3 9.7 82.4 7.8 71.8 12.5 57.7 18.5 48 33.5 48 50.8v410.4c0 17.3 9.7 32.3 23.8 38.4 6.1 2.4 12.6 3.6 19 3.6 8.2 0 16.4-2.1 23.8-6.3l220.7-216.1c6.6-6.4 6.6-16.9 0-23.6zM384.9 256L432 215.4c6.4-5.1 8.6-14.6 5.5-22.1-3.1-7.5-10.9-12.2-19.1-11.4L325.3 234.3 384.9 256z" />
-              </svg>
-              <span class="text-left">
-                <div class="text-xs">Disponível em</div>
-                <div class="font-semibold">Google Play</div>
-              </span>
-            </a>
-
-            <!-- App Store (SVG Badge) -->
-            <a href="#" role="button" aria-label="Download na App Store" class="inline-flex items-center gap-3 px-4 py-3 bg-black text-white rounded-lg shadow hover:opacity-90 transition">
-              <!-- Apple icon -->
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path d="M16.365 1.43c0 1.02-.37 2.03-1.08 2.84-.73.82-1.8 1.51-3.02 1.29-.09-.01-.18-.02-.27-.03-.47-.05-.9-.28-1.24-.61-.34-.34-.57-.77-.62-1.24-.01-.09-.02-.18-.03-.27.22-1.23.07-2.31-.75-3.04C9.45.88 8.45.5 7.43.5 6.93.5 6.45.56 6 .68c-.48.12-.95.3-1.39.54-.32.17-.6.37-.86.59C1.85 3.42.5 5.98.5 8.5c0 2.63 1.09 5.05 2.7 6.75 1.48 1.56 3.56 2.78 5.39 2.78.42 0 .84-.05 1.26-.15 1.23-.26 2.38-1.01 3.25-1.9.23-.24.43-.5.61-.78.16-.25.35-.48.57-.69.31-.3.67-.52 1.08-.62.06-.01.13-.02.19-.02 1.04.03 2.08.73 2.84 1.62.32.35.6.73.82 1.14.07.12.13.24.19.36.34.75.9 1.35 1.6 1.74.33.18.67.33 1.03.43.25.07.5.12.76.12 1.23 0 2.46-.72 3.16-1.93.92-1.69 1.78-4.13 1.78-6.26 0-2.64-1.12-5.11-2.78-6.81-1.57-1.61-3.64-2.9-5.44-2.9-.37 0-.73.04-1.08.12-.78.18-1.47.56-2.06 1.08-.47.42-.79 1.03-.92 1.71z"/>
-              </svg>
-              <span class="text-left">
-                <div class="text-xs">Baixe na</div>
-                <div class="font-semibold">App Store</div>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Mockup do app -->
-        <div class="order-1 md:order-2 flex justify-center md:justify-end">
-          <!-- Substitua "app-mockup.png" com seu mockup real -->
-          <div class="w-56">
-            <div class="rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-              <img src="bookimage.png" alt="Mockup do aplicativo InclusiVR" class="w-full h-auto object-cover">
-            </div>
-            <p class="text-xs text-gray-500 text-center mt-2">App InclusiVR</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section id="newsletter" class="py-24 bg-purple-600">
-  <div class="container mx-auto px-6">
-
-    <!-- TÍTULO -->
-    <h2 class="text-4xl font-extrabold text-center text-white mb-4">
-      📬 Newsletter InclusiNews
-    </h2>
-
-    <!-- DESCRIÇÃO -->
-    <p class="text-center text-purple-100 text-lg mb-12 max-w-2xl mx-auto">
-      Assine nossa newsletter e acompanhe novidades, bastidores e histórias
-      mágicas da InclusiVR!
-    </p>
-
-    <!-- CARD DO FORMULÁRIO -->
-    <div class="max-w-xl mx-auto mb-16
-                bg-white/90 backdrop-blur-md
-                rounded-3xl p-8 shadow-xl">
-
-      <form
-        action="https://formspree.io/f/mojaqkol"
-        method="POST"
-        class="flex flex-col sm:flex-row items-center gap-4">
-
-        <!-- Assunto do e-mail -->
-        <input
-          type="hidden"
-          name="_subject"
-          value="INCLUIR NA NEWSLETTER">
-
-        <!-- Email -->
-        <input
-          type="email"
-          name="email"
-          placeholder="Digite seu e-mail"
-          required
-          class="flex-1 px-5 py-3 rounded-full border
-                 border-purple-300 focus:ring-2
-                 focus:ring-purple-500 outline-none">
-
-        <!-- Botão -->
-        <button
-          type="submit"
-          class="bg-purple-600 text-white px-6 py-3
-                 rounded-full font-bold
-                 hover:bg-purple-700 transition shadow-md">
-          Assinar
+        <a href="#contato" class="btn btn--primary btn--sm site-header__cta">
+          Fale conosco
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
         </button>
-
-      </form>
+      </div>
     </div>
 
-    <!-- TEXTO FINAL / CTA -->
-    <div class="text-center">
-      <p class="text-purple-100 text-sm mb-4">
-        📌 Receba as próximas edições diretamente no seu e-mail
-      </p>
-      <p class="text-purple-100 text-sm mb-6">
-        Fique ligado nas novidades mágicas da InclusiVR.
-      </p>
+  </header>
 
-      <a href="#contato"
-         class="inline-block bg-white text-purple-600
-                px-8 py-3 rounded-full
-                font-bold hover:bg-purple-50
-                transition shadow-md">
-        Entrar em contato
+  <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+    <nav class="container mobile-nav__inner" aria-label="Navegação móvel">
+      <a href="#solucoes">Soluções</a>
+      <a href="#produto">Produto</a>
+      <a href="#estudio">Estúdio 3D</a>
+      <a href="#ar">Realidade Aumentada</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#jornada">Jornada</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5516994002335" class="btn btn--wa btn--block" data-wa="geral" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        Conversar no WhatsApp
+      </a>
+    </nav>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ===================== HERO ===================== -->
+    <section id="inicio" class="hero">
+      <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero__backdrop" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="pill reveal">
+            <span class="pill__dot" aria-hidden="true"></span>
+            Tecnologia imersiva · Incubada no NIDUS-USP
+          </p>
+
+          <h1 class="hero__title reveal" style="--d:1">
+            Conectando mundos por meio das <span class="text-gradient">línguas de sinais</span> e tecnologia.
+          </h1>
+
+          <p class="hero__lead reveal" style="--d:2">
+            Desenvolvemos soluções em Realidade Aumentada e Realidade Virtual que tornam o ensino de
+            LIBRAS mais acessível, imersivo e envolvente — para famílias, escolas e instituições.
+          </p>
+
+          <div class="hero__actions reveal" style="--d:3">
+            <a href="#solucoes" class="btn btn--primary btn--lg">
+              Conheça nossas soluções
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="ar.html" class="btn btn--ghost btn--lg">
+              <svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>
+              Ver logo em AR
+            </a>
+          </div>
+
+          <a href="https://wa.me/5516994002335" class="hero__wa reveal" style="--d:4" data-wa="geral" target="_blank" rel="noopener">
+            <span class="hero__wa-icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+            <span>Prefere conversar? <strong>Fale agora pelo WhatsApp</strong></span>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+
+        <div class="hero__stage" data-hero-stage>
+          <div class="hero__hint" data-hero-hint>
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-move"/></svg>
+            Arraste para girar em 3D
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <dl class="hero__stats reveal" style="--d:5">
+          <div class="stat"><dt>Desde</dt><dd><span class="stat__value">2023</span><span class="stat__label">Fundada na USP</span></dd></div>
+          <div class="stat"><dt>Incubação</dt><dd><span class="stat__value">NIDUS</span><span class="stat__label">Programa NIDUS-USP</span></dd></div>
+          <div class="stat"><dt>Tecnologias</dt><dd><span class="stat__value">AR + VR</span><span class="stat__label">Experiências imersivas</span></dd></div>
+          <div class="stat"><dt>Foco</dt><dd><span class="stat__value notranslate">LIBRAS</span><span class="stat__label">Educação inclusiva</span></dd></div>
+        </dl>
+      </div>
+
+      <a href="#parceiros" class="hero__scroll" aria-label="Rolar para o conteúdo">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===================== PARCEIROS ===================== -->
+    <section id="parceiros" class="partners" aria-label="Parceiros e programas">
+      <div class="container partners__inner">
+        <p class="partners__label">Desenvolvido com o apoio de programas e parceiros de referência</p>
+        <ul class="partners__list notranslate">
+          <li>USP</li>
+          <li>NIDUS<span>-USP</span></li>
+          <li>PROAC</li>
+          <li>VaiTec</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== SOLUÇÕES ===================== -->
+    <section id="solucoes" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>01</span> Soluções</p>
+          <h2 class="section-title">Tecnologia de ponta a serviço da <span class="text-gradient">inclusão</span>.</h2>
+          <p class="section-lead">
+            Unimos pesquisa pedagógica, design e engenharia de experiências imersivas para criar produtos
+            que transformam o aprendizado de LIBRAS em algo visual, interativo e memorável.
+          </p>
+        </header>
+
+        <div class="bento">
+          <article class="card card--feature bento__a reveal" data-glow>
+            <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg></div>
+            <h3 class="card__title">Realidade Aumentada</h3>
+            <p class="card__text">
+              Sinais em LIBRAS animados em 3D sobre as páginas dos livros, direto da câmera do celular —
+              sem óculos, sem equipamentos especiais.
+            </p>
+            <div class="card__visual" aria-hidden="true">
+              <div class="scanframe">
+                <span class="scanframe__corner"></span><span class="scanframe__corner"></span>
+                <span class="scanframe__corner"></span><span class="scanframe__corner"></span>
+                <span class="scanframe__line"></span>
+                <svg class="scanframe__hand" viewBox="0 0 24 24"><use href="#i-hand"/></svg>
+              </div>
+            </div>
+            <a href="#ar" class="card__link">Experimente agora <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+
+          <article class="card bento__b reveal" style="--d:1" data-glow>
+            <div class="card__icon card__icon--violet"><svg class="icon" aria-hidden="true"><use href="#i-vr"/></svg></div>
+            <h3 class="card__title">Realidade Virtual</h3>
+            <p class="card__text">Jogo imersivo em VR para praticar LIBRAS em ambientes interativos, em desenvolvimento com apoio de financiamento público.</p>
+          </article>
+
+          <article class="card bento__c reveal" style="--d:2" data-glow>
+            <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></div>
+            <h3 class="card__title">Livros interativos</h3>
+            <p class="card__text">Publicações com ilustrações de artista surdo, texturas táteis e camadas digitais integradas ao impresso.</p>
+          </article>
+
+          <article class="card bento__d reveal" style="--d:1" data-glow>
+            <div class="card__icon card__icon--violet"><svg class="icon" aria-hidden="true"><use href="#i-game"/></svg></div>
+            <h3 class="card__title">Jogos educacionais</h3>
+            <p class="card__text">Jogo de cartas em versão física e digital, além de minijogos que reforçam o aprendizado de forma lúdica.</p>
+          </article>
+
+          <article class="card bento__e reveal" style="--d:2" data-glow>
+            <div class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-grad"/></svg></div>
+            <h3 class="card__title">Metodologia pedagógica</h3>
+            <p class="card__text">Conteúdo construído por especialistas em LIBRAS, psicologia e educação inclusiva, validado em testes com usuários.</p>
+          </article>
+
+          <article class="card card--cta bento__f reveal" style="--d:3" data-glow>
+            <div class="card__icon card__icon--wa"><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg></div>
+            <h3 class="card__title">Soluções para instituições</h3>
+            <p class="card__text">Programas para escolas, bibliotecas, secretarias e empresas que querem promover acessibilidade e inclusão em escala.</p>
+            <a href="https://wa.me/5516994002335" class="btn btn--wa btn--sm" data-wa="b2b" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              Falar com o time comercial
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRODUTO ===================== -->
+    <section id="produto" class="section section--alt">
+      <div class="container">
+        <div class="product">
+          <div class="product__media reveal">
+            <div class="product__tilt" data-tilt>
+              <div class="product__halo" aria-hidden="true"></div>
+              <img src="assets/img/book.webp" alt="Livro SinalizaAção – Animais em Voga, com runas de sinais em LIBRAS" width="1100" height="1171" loading="lazy" class="product__img">
+              <span class="chip chip--float chip--a"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-scan"/></svg> Realidade Aumentada</span>
+              <span class="chip chip--float chip--b"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-hand"/></svg> Texturas táteis</span>
+              <span class="chip chip--float chip--c"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-game"/></svg> Jogo de cartas</span>
+            </div>
+          </div>
+
+          <div class="product__body">
+            <p class="eyebrow reveal"><span>02</span> Produto em destaque</p>
+            <h2 class="section-title reveal" style="--d:1">
+              <span class="notranslate">SinalizaAção</span> — Animais em Voga
+            </h2>
+            <p class="product__tagline reveal" style="--d:2">
+              Tecnologias imersivas que transformam o aprendizado de LIBRAS em uma experiência lúdica, visual e interativa.
+            </p>
+            <p class="reveal" style="--d:2">
+              O primeiro livro infantil da InclusiVR se passa em Signária, uma cidade peculiar onde todos os habitantes
+              se comunicam em LIBRAS. Aia, a maga, possui artefatos que transformam os sinais em magia.
+            </p>
+
+            <ul class="checklist reveal" style="--d:3">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Ilustrações do artista surdo Igor B.</strong> — representatividade em cada página.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Texturas táteis e relevos</strong> para estímulo sensorial.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Sinais animados em 3D</strong> com Realidade Aumentada pelo app InclusiVR.</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Jogo de cartas educativo</strong> com versão física e digital.</span></li>
+            </ul>
+
+            <div class="product__actions reveal" style="--d:4">
+              <a href="https://loja.inclusivr.com.br/" class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg>
+                Comprar na loja
+              </a>
+              <a href="https://wa.me/5516994002335" class="btn btn--ghost btn--lg" data-wa="b2b" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-building"/></svg>
+                Compras institucionais
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Como funciona -->
+        <div class="howto">
+          <div class="howto__media reveal">
+            <img src="assets/img/book-ar.webp" alt="Livro aberto com sinal em LIBRAS, elefante em 3D e o aplicativo InclusiVR no celular" width="1400" height="1097" loading="lazy">
+          </div>
+          <ol class="howto__steps">
+            <li class="step reveal" style="--d:1">
+              <span class="step__num">01</span>
+              <div><h3>Abra o aplicativo</h3><p>Acesse a experiência InclusiVR no celular ou tablet.</p></div>
+            </li>
+            <li class="step reveal" style="--d:2">
+              <span class="step__num">02</span>
+              <div><h3>Aponte para a página</h3><p>A câmera reconhece as ilustrações e as runas do livro.</p></div>
+            </li>
+            <li class="step reveal" style="--d:3">
+              <span class="step__num">03</span>
+              <div><h3>Veja o sinal ganhar vida</h3><p>Animações 3D mostram cada sinal em LIBRAS, de todos os ângulos.</p></div>
+            </li>
+            <li class="step step--cta reveal" style="--d:4">
+              <a href="app/index.html" class="btn btn--ghost btn--block" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>
+                Abrir a experiência WebAR do livro
+              </a>
+              <p class="step__note">
+                <span class="badge">Em breve</span> Aplicativo nativo para Android e iOS.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ESTÚDIO 3D ===================== -->
+    <section id="estudio" class="section">
+      <div class="container">
+        <header class="section-head section-head--split reveal">
+          <div>
+            <p class="eyebrow"><span>03</span> Estúdio 3D</p>
+            <h2 class="section-title">Explore, gire e personalize em <span class="text-gradient">tempo real</span>.</h2>
+          </div>
+          <p class="section-lead">
+            Uma prévia do nosso motor de visualização: arraste para girar, use a pinça ou a rolagem para aproximar
+            e troque modelos, acabamentos e cores — tudo renderizado em 3D no seu navegador.
+          </p>
+        </header>
+
+        <div class="studio reveal" data-studio>
+          <div class="studio__viewport">
+            <canvas id="studio-canvas" class="studio__canvas" aria-label="Visualizador 3D interativo"></canvas>
+
+            <div class="studio__hud studio__hud--tl">
+              <span class="hud-tag"><span class="hud-dot" aria-hidden="true"></span> <span data-studio-name>Logo InclusiVR</span></span>
+              <span class="hud-meta notranslate" data-studio-stats>— tris</span>
+            </div>
+
+            <div class="studio__hud studio__hud--tr">
+              <button class="icon-btn is-active" type="button" data-studio-action="autorotate" aria-pressed="true" title="Rotação automática" aria-label="Rotação automática">
+                <svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg>
+              </button>
+              <button class="icon-btn" type="button" data-studio-action="reset" title="Redefinir câmera" aria-label="Redefinir câmera">
+                <svg class="icon" aria-hidden="true"><use href="#i-reset"/></svg>
+              </button>
+              <button class="icon-btn" type="button" data-studio-action="fullscreen" title="Tela cheia" aria-label="Tela cheia">
+                <svg class="icon" aria-hidden="true"><use href="#i-max"/></svg>
+              </button>
+            </div>
+
+            <p class="studio__hint">
+              <svg class="icon icon--sm" aria-hidden="true"><use href="#i-move"/></svg>
+              Arraste para girar · Pinça ou rolagem para zoom · Dois dedos para mover
+            </p>
+
+            <div class="studio__loader" data-studio-loader>
+              <span class="spinner" aria-hidden="true"></span>
+              Carregando o estúdio 3D…
+            </div>
+          </div>
+
+          <div class="studio__controls">
+            <fieldset class="control">
+              <legend class="control__label">Modelo</legend>
+              <div class="model-list">
+                <label class="model-opt">
+                  <input type="radio" name="studio-model" value="logo" checked>
+                  <span class="model-opt__body">
+                    <svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg>
+                    <span><strong>Logo InclusiVR</strong><small>Marca extrudada em 3D</small></span>
+                  </span>
+                </label>
+                <label class="model-opt">
+                  <input type="radio" name="studio-model" value="rune">
+                  <span class="model-opt__body">
+                    <svg class="icon" aria-hidden="true"><use href="#i-hand"/></svg>
+                    <span><strong>Runa <span class="notranslate">LIBRAS</span></strong><small>Artefato mágico do livro</small></span>
+                  </span>
+                </label>
+                <label class="model-opt">
+                  <input type="radio" name="studio-model" value="card">
+                  <span class="model-opt__body">
+                    <svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>
+                    <span><strong>Cartão AR</strong><small>Marcador de realidade aumentada</small></span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="control">
+              <legend class="control__label">Acabamento</legend>
+              <div class="segmented" role="radiogroup">
+                <label><input type="radio" name="studio-finish" value="original" checked><span>Original</span></label>
+                <label><input type="radio" name="studio-finish" value="metal"><span>Metálico</span></label>
+                <label><input type="radio" name="studio-finish" value="holo"><span>Holográfico</span></label>
+                <label><input type="radio" name="studio-finish" value="wire"><span>Wireframe</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="control">
+              <legend class="control__label">Cor de destaque</legend>
+              <div class="swatches">
+                <label class="swatch" style="--c:#15b0ff"><input type="radio" name="studio-color" value="#15b0ff" checked><span class="sr-only">Azul InclusiVR</span></label>
+                <label class="swatch" style="--c:#7b5cff"><input type="radio" name="studio-color" value="#7b5cff"><span class="sr-only">Violeta</span></label>
+                <label class="swatch" style="--c:#ac2fed"><input type="radio" name="studio-color" value="#ac2fed"><span class="sr-only">Roxo</span></label>
+                <label class="swatch" style="--c:#19d3a2"><input type="radio" name="studio-color" value="#19d3a2"><span class="sr-only">Verde-água</span></label>
+                <label class="swatch" style="--c:#f5b83d"><input type="radio" name="studio-color" value="#f5b83d"><span class="sr-only">Dourado</span></label>
+                <label class="swatch" style="--c:#e9ecf8"><input type="radio" name="studio-color" value="#e9ecf8"><span class="sr-only">Prata</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="control">
+              <legend class="control__label">Visualização</legend>
+              <label class="switch">
+                <input type="checkbox" data-studio-toggle="explode">
+                <span class="switch__track" aria-hidden="true"></span>
+                <span>Vista explodida</span>
+              </label>
+              <label class="switch">
+                <input type="checkbox" data-studio-toggle="spotlight" checked>
+                <span class="switch__track" aria-hidden="true"></span>
+                <span>Iluminação de estúdio</span>
+              </label>
+            </fieldset>
+
+            <a href="ar.html" class="btn btn--primary btn--block">
+              <svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>
+              Ver em realidade aumentada
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REALIDADE AUMENTADA ===================== -->
+    <section id="ar" class="section section--alt ar-section">
+      <div class="container ar-grid">
+        <div class="ar-copy">
+          <p class="eyebrow reveal"><span>04</span> Realidade Aumentada</p>
+          <h2 class="section-title reveal" style="--d:1">Nossa marca no <span class="text-gradient">seu mundo</span>, na palma da mão.</h2>
+          <p class="section-lead reveal" style="--d:2">
+            Ative a câmera do celular e veja o logo da InclusiVR em 3D, em realidade aumentada. Gire com um dedo,
+            aproxime com a pinça e torça com dois dedos — e ainda tire uma foto para compartilhar.
+          </p>
+
+          <div class="ar-modes">
+            <article class="ar-mode reveal" style="--d:2">
+              <div class="ar-mode__icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></div>
+              <div>
+                <h3>Modo Cartão AR</h3>
+                <p>Aponte a câmera para o Cartão AR — impresso ou exibido em outra tela — e o logo surge em 3D sobre ele.</p>
+              </div>
+            </article>
+            <article class="ar-mode reveal" style="--d:3">
+              <div class="ar-mode__icon ar-mode__icon--violet"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></div>
+              <div>
+                <h3>Modo Selfie</h3>
+                <p>Use a câmera frontal: o rastreamento facial posiciona a marca sobre você, onde quer que esteja.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="ar-actions reveal" style="--d:4">
+            <a href="ar.html" class="btn btn--primary btn--lg">
+              <svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>
+              Abrir câmera AR
+            </a>
+            <a href="assets/ar/inclusivr-ar-card.jpg" class="btn btn--ghost btn--lg" download="InclusiVR-Cartao-AR.jpg">
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+              Baixar Cartão AR
+            </a>
+          </div>
+          <p class="ar-note reveal" style="--d:5">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-shield"/></svg>
+            Funciona direto no navegador, sem instalar nada. As imagens da câmera são processadas apenas no seu aparelho.
+          </p>
+        </div>
+
+        <div class="ar-visual reveal" style="--d:2">
+          <div class="ar-card" data-tilt>
+            <img src="assets/img/ar-card.webp" alt="Cartão AR da InclusiVR — aponte a câmera para ver o logo em 3D" width="800" height="1000" loading="lazy">
+            <span class="ar-card__scan" aria-hidden="true"></span>
+            <span class="ar-card__corners" aria-hidden="true"></span>
+          </div>
+
+          <div class="qr-panel" data-qr-panel>
+            <div class="qr-panel__code" data-qr="ar.html" aria-label="QR Code para abrir a experiência AR no celular"></div>
+            <div>
+              <p class="qr-panel__title"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-qr"/></svg> Está no computador?</p>
+              <p class="qr-panel__text">Escaneie com o celular para abrir a câmera AR e aponte para o cartão exibido nesta tela.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EMPRESA ===================== -->
+    <section id="empresa" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>05</span> Empresa</p>
+          <h2 class="section-title">Uma equipe multidisciplinar com um propósito claro.</h2>
+          <p class="section-lead">
+            A InclusiVR é uma startup dedicada a tornar o ensino de LIBRAS mais acessível, imersivo e divertido
+            por meio da tecnologia XR. Desde 2023 desenvolvemos soluções com parceiros e programas como USP, NIDUS,
+            PROAC e VaiTec — sempre com base em testes e inovação pedagógica.
+          </p>
+        </header>
+
+        <div class="values">
+          <div class="value reveal" style="--d:1">
+            <div class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></div>
+            <h3>Inclusão de verdade</h3>
+            <p>Produtos pensados com e para a comunidade surda, com representatividade em cada etapa.</p>
+          </div>
+          <div class="value reveal" style="--d:2">
+            <div class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-flask"/></svg></div>
+            <h3>Ciência e pesquisa</h3>
+            <p>Metodologia nascida na universidade, validada com testes e evidências pedagógicas.</p>
+          </div>
+          <div class="value reveal" style="--d:3">
+            <div class="value__icon"><svg class="icon" aria-hidden="true"><use href="#i-bulb"/></svg></div>
+            <h3>Inovação contínua</h3>
+            <p>Tecnologias imersivas aplicadas para criar soluções disruptivas em educação.</p>
+          </div>
+        </div>
+
+        <h3 class="team-title reveal">Liderança e especialistas</h3>
+        <div class="team">
+          <article class="member reveal" style="--d:1" data-glow>
+            <div class="member__avatar notranslate" aria-hidden="true">LD</div>
+            <h4 class="member__name notranslate">Luciano Delphino de Azevedo Júnior</h4>
+            <p class="member__role">Psicólogo e Diretor Criativo</p>
+            <p class="member__bio">Psicólogo pela UNESP, técnico em eletrônica e mestre pela USP Ribeirão Preto. Responsável pela metodologia do jogo e pelo universo SinalizaAção.</p>
+          </article>
+          <article class="member reveal" style="--d:2" data-glow>
+            <div class="member__avatar member__avatar--b notranslate" aria-hidden="true">MC</div>
+            <h4 class="member__name notranslate">Maria Clara Franco Cardoso</h4>
+            <p class="member__role">Socióloga e Cofundadora</p>
+            <p class="member__bio">Bacharel em Ciências Sociais pela USP, especialista em pesquisa de mercado. Cofundadora da InclusiVR e gestora do projeto no NIDUS.</p>
+          </article>
+          <article class="member reveal" style="--d:3" data-glow>
+            <div class="member__avatar member__avatar--c notranslate" aria-hidden="true">VS</div>
+            <h4 class="member__name notranslate">Victor Sad de Souza</h4>
+            <p class="member__role">Jurídico e Negócios</p>
+            <p class="member__bio">Advogado com foco em startups e inovação. Responsável pela estrutura jurídica e estratégica da InclusiVR.</p>
+          </article>
+          <article class="member reveal" style="--d:1" data-glow>
+            <div class="member__avatar member__avatar--d notranslate" aria-hidden="true">F</div>
+            <h4 class="member__name notranslate">Fauston</h4>
+            <p class="member__role">Especialista em LIBRAS</p>
+            <p class="member__bio">Licenciado em Artes Cênicas pela USP, professor e intérprete de LIBRAS, pesquisador da educação inclusiva.</p>
+          </article>
+          <article class="member reveal" style="--d:2" data-glow>
+            <div class="member__avatar member__avatar--e notranslate" aria-hidden="true">LM</div>
+            <h4 class="member__name notranslate">Leonardo "JLeo" Martins</h4>
+            <p class="member__role">Programador XR</p>
+            <p class="member__bio">Desenvolvedor de experiências imersivas em XR. Responsável pela programação do jogo e pela integração AR/VR.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== JORNADA ===================== -->
+    <section id="jornada" class="section section--alt">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>06</span> Jornada</p>
+          <h2 class="section-title">Da universidade para o mercado, um passo de cada vez.</h2>
+        </header>
+
+        <ol class="timeline" data-timeline>
+          <li class="tl-item reveal" data-year="2023">
+            <span class="tl-item__dot" aria-hidden="true"></span>
+            <p class="tl-item__year">2023</p>
+            <p class="tl-item__status" data-status></p>
+            <h3 class="tl-item__title">A ideia nasce na USP</h3>
+            <p class="tl-item__text">Fundação por Maria e Luciano. Entrada de Victor no final do ano.</p>
+          </li>
+          <li class="tl-item reveal" style="--d:1" data-year="2024">
+            <span class="tl-item__dot" aria-hidden="true"></span>
+            <p class="tl-item__year">2024</p>
+            <p class="tl-item__status" data-status></p>
+            <h3 class="tl-item__title">Incubação no NIDUS-USP</h3>
+            <p class="tl-item__text">Entrada de JLeo e Fauston. Estruturação pedagógica e testes com usuários.</p>
+          </li>
+          <li class="tl-item reveal" style="--d:2" data-year="2025">
+            <span class="tl-item__dot" aria-hidden="true"></span>
+            <p class="tl-item__year">2025</p>
+            <p class="tl-item__status" data-status></p>
+            <h3 class="tl-item__title">Primeiro livro com AR</h3>
+            <p class="tl-item__text">Participação em editais, entrada de Igor (ilustrador) e lançamento do primeiro livro com Realidade Aumentada.</p>
+          </li>
+          <li class="tl-item reveal" style="--d:3" data-year="2026">
+            <span class="tl-item__dot" aria-hidden="true"></span>
+            <p class="tl-item__year">2026</p>
+            <p class="tl-item__status" data-status></p>
+            <h3 class="tl-item__title">Jogo em Realidade Virtual</h3>
+            <p class="tl-item__text">Desenvolvimento e lançamento do jogo VR com apoio de financiamento público e criação de novos livros.</p>
+          </li>
+          <li class="tl-item reveal" style="--d:4" data-year="2027">
+            <span class="tl-item__dot" aria-hidden="true"></span>
+            <p class="tl-item__year">2027</p>
+            <p class="tl-item__status" data-status></p>
+            <h3 class="tl-item__title">Expansão internacional</h3>
+            <p class="tl-item__text">Tradução para o inglês, lançamento de DLC e ampliação do catálogo de livros.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section id="contato" class="section contact-section">
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <p class="eyebrow"><span>07</span> Contato</p>
+          <h2 class="section-title">Vamos construir algo <span class="text-gradient">inclusivo</span> juntos?</h2>
+          <p class="section-lead">
+            Parcerias, compras institucionais, imprensa ou dúvidas sobre nossos produtos — nossa equipe atende
+            diretamente pelo WhatsApp.
+          </p>
+        </header>
+
+        <div class="contact">
+          <aside class="contact__aside">
+            <div class="wa-card reveal">
+              <div class="wa-card__head">
+                <span class="wa-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+                <div>
+                  <p class="wa-card__label">Atendimento via WhatsApp</p>
+                  <a href="https://wa.me/5516994002335" class="wa-card__number notranslate" data-wa="geral" target="_blank" rel="noopener">+55 (16) 99400-2335</a>
+                </div>
+              </div>
+
+              <p class="wa-card__text">Escolha um assunto para iniciar a conversa com a mensagem pronta:</p>
+              <div class="topic-chips">
+                <a href="https://wa.me/5516994002335" class="topic" data-wa="compra" target="_blank" rel="noopener"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-cart"/></svg> Comprar o livro</a>
+                <a href="https://wa.me/5516994002335" class="topic" data-wa="b2b" target="_blank" rel="noopener"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-building"/></svg> Escolas e instituições</a>
+                <a href="https://wa.me/5516994002335" class="topic" data-wa="parcerias" target="_blank" rel="noopener"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-spark"/></svg> Parcerias e investimentos</a>
+                <a href="https://wa.me/5516994002335" class="topic" data-wa="imprensa" target="_blank" rel="noopener"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"/></svg> Imprensa</a>
+              </div>
+
+              <div class="wa-card__foot">
+                <a href="https://wa.me/5516994002335" class="btn btn--wa btn--lg btn--block" data-wa="geral" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+                  Iniciar conversa no WhatsApp
+                </a>
+                <div class="wa-card__qr" data-qr="https://wa.me/5516994002335" aria-label="QR Code do WhatsApp da InclusiVR"></div>
+              </div>
+            </div>
+
+            <div class="contact-info reveal" style="--d:1">
+              <a href="mailto:contato@inclusivr.com.br" class="contact-info__item">
+                <span class="contact-info__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span><small>E-mail</small><strong class="notranslate">contato@inclusivr.com.br</strong></span>
+              </a>
+              <a href="https://loja.inclusivr.com.br/" class="contact-info__item" target="_blank" rel="noopener">
+                <span class="contact-info__icon"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg></span>
+                <span><small>Loja oficial</small><strong class="notranslate">loja.inclusivr.com.br</strong></span>
+              </a>
+            </div>
+          </aside>
+
+          <form class="contact-form reveal" style="--d:1" action="https://formspree.io/f/xzdpbjwr" method="POST" data-contact-form novalidate>
+            <input type="hidden" name="_subject" value="CONTATO — SITE INCLUSIVR">
+            <h3 class="contact-form__title">Envie uma mensagem</h3>
+            <p class="contact-form__sub">Preencha os campos e escolha como prefere enviar.</p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="cf-nome">Nome completo</label>
+                <input id="cf-nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
+              </div>
+              <div class="field">
+                <label for="cf-email">E-mail</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required placeholder="voce@empresa.com">
+              </div>
+              <div class="field">
+                <label for="cf-tel">Telefone <span class="field__opt">(opcional)</span></label>
+                <input id="cf-tel" name="telefone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000">
+              </div>
+              <div class="field">
+                <label for="cf-assunto">Assunto</label>
+                <div class="select">
+                  <select id="cf-assunto" name="assunto">
+                    <option>Comprar o livro</option>
+                    <option>Escolas e instituições (B2B)</option>
+                    <option>Parcerias e investimentos</option>
+                    <option>Imprensa</option>
+                    <option>Outro assunto</option>
+                  </select>
+                  <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron"/></svg>
+                </div>
+              </div>
+              <div class="field field--full">
+                <label for="cf-msg">Mensagem</label>
+                <textarea id="cf-msg" name="mensagem" rows="5" required placeholder="Conte um pouco sobre o que você precisa…"></textarea>
+              </div>
+            </div>
+
+            <div class="contact-form__actions">
+              <button type="button" class="btn btn--wa btn--lg" data-send="whatsapp">
+                <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+                Enviar pelo WhatsApp
+              </button>
+              <button type="submit" class="btn btn--ghost btn--lg" data-send="email">
+                <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+                Enviar por e-mail
+              </button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section id="newsletter" class="newsletter">
+      <div class="container">
+        <div class="newsletter__box reveal">
+          <div class="newsletter__copy">
+            <p class="eyebrow">Newsletter <span class="notranslate">InclusiNews</span></p>
+            <h2 class="newsletter__title">Novidades, bastidores e lançamentos no seu e-mail.</h2>
+            <ul class="newsletter__perks">
+              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"/></svg> Conteúdo exclusivo e bastidores</li>
+              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"/></svg> Convites para entrevistas e testes</li>
+              <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-check"/></svg> 10% de desconto na primeira compra</li>
+            </ul>
+          </div>
+          <form class="newsletter__form" action="https://formspree.io/f/mojaqkol" method="POST" data-newsletter-form>
+            <input type="hidden" name="_subject" value="INCLUIR NA NEWSLETTER">
+            <label for="nl-email" class="sr-only">Seu e-mail</label>
+            <input id="nl-email" type="email" name="email" required placeholder="Digite seu e-mail" autocomplete="email">
+            <button type="submit" class="btn btn--primary">Assinar</button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="#inicio" class="brand notranslate" aria-label="InclusiVR — início">
+            <img src="assets/img/logo-mark.webp" alt="" width="34" height="58" class="brand__mark">
+            <span class="brand__word">Inclusi<span>VR</span></span>
+          </a>
+          <p>Tecnologia imersiva para conectar mundos por meio das línguas de sinais.</p>
+          <div class="social">
+            <a href="#" aria-label="Instagram" data-social><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+            <a href="#" aria-label="TikTok" data-social><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+            <a href="#" aria-label="YouTube" data-social><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a>
+          </div>
+        </div>
+
+        <nav class="site-footer__col" aria-label="Empresa">
+          <p class="site-footer__heading">Empresa</p>
+          <a href="#empresa">Quem somos</a>
+          <a href="#jornada">Jornada</a>
+          <a href="#newsletter">Newsletter</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <nav class="site-footer__col" aria-label="Soluções">
+          <p class="site-footer__heading">Soluções</p>
+          <a href="#solucoes">Realidade Aumentada</a>
+          <a href="#solucoes">Realidade Virtual</a>
+          <a href="#produto">Livro <span class="notranslate">SinalizaAção</span></a>
+          <a href="#estudio">Estúdio 3D</a>
+          <a href="ar.html">Experiência AR</a>
+        </nav>
+
+        <div class="site-footer__col">
+          <p class="site-footer__heading">Fale com a gente</p>
+          <a href="https://wa.me/5516994002335" data-wa="geral" target="_blank" rel="noopener" class="site-footer__wa notranslate">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-whatsapp"/></svg> +55 (16) 99400-2335
+          </a>
+          <a href="mailto:contato@inclusivr.com.br" class="notranslate">contato@inclusivr.com.br</a>
+          <a href="https://loja.inclusivr.com.br/" target="_blank" rel="noopener">Loja oficial</a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© <span data-current-year>2026</span> <span class="notranslate">InclusiVR</span>. Todos os direitos reservados.</p>
+        <p>Feito com tecnologia imersiva e acessibilidade em mente.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== WHATSAPP FLUTUANTE ===================== -->
+  <div class="wa-widget" data-wa-widget>
+    <div class="wa-widget__panel" id="wa-panel" role="dialog" aria-modal="false" aria-labelledby="wa-panel-title" hidden data-wa-panel>
+      <div class="wa-widget__head">
+        <img src="assets/img/logo-mark.webp" alt="" width="22" height="38">
+        <div>
+          <p class="wa-widget__title notranslate" id="wa-panel-title">InclusiVR</p>
+          <p class="wa-widget__sub">Atendimento pelo WhatsApp</p>
+        </div>
+        <button type="button" class="wa-widget__close" aria-label="Fechar" data-wa-close>
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="wa-widget__body">
+        <p class="wa-bubble">Olá! 👋 Como podemos ajudar você hoje?</p>
+        <div class="wa-widget__options">
+          <a href="https://wa.me/5516994002335" data-wa="compra" target="_blank" rel="noopener">Quero comprar o livro</a>
+          <a href="https://wa.me/5516994002335" data-wa="b2b" target="_blank" rel="noopener">Sou de uma escola ou instituição</a>
+          <a href="https://wa.me/5516994002335" data-wa="parcerias" target="_blank" rel="noopener">Parcerias e investimentos</a>
+          <a href="https://wa.me/5516994002335" data-wa="geral" target="_blank" rel="noopener">Outro assunto</a>
+        </div>
+      </div>
+      <a href="https://wa.me/5516994002335" class="wa-widget__cta" data-wa="geral" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+        Abrir conversa
       </a>
     </div>
 
-  </div>
-</section>
-
-
-
-     <!-- Contato -->
-<section id="contato" class="py-24 bg-gradient-to-b from-white to-purple-50">
-  <div class="container mx-auto px-6 max-w-5xl">
-
-    <h2 class="text-4xl font-extrabold text-center text-purple-800 mb-4">
-      📬 Fale com a gente
-    </h2>
-
-    <p class="text-center text-gray-700 text-lg mb-12">
-      Quer fazer parte da nossa comunidade? Cadastre-se e fale conosco!
+    <p class="wa-widget__teaser" data-wa-teaser hidden>
+      Fale com nossa equipe
+      <button type="button" aria-label="Dispensar" data-wa-teaser-close><svg class="icon icon--sm" aria-hidden="true"><use href="#i-x"/></svg></button>
     </p>
 
-    <div class="grid md:grid-cols-2 gap-12">
-
-      <!-- FORMULÁRIO -->
-      <div class="bg-white rounded-xl shadow-xl p-8">
-
-        <h3 class="text-2xl font-bold text-purple-700 mb-4">
-          Cadastre-se e receba:
-        </h3>
-
-        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-1">
-          <li>Conteúdo exclusivo e bastidores</li>
-          <li>Convites para entrevistas e testes</li>
-          <li>
-            <span class="font-semibold text-purple-700">
-              10% de desconto
-            </span> na primeira compra
-          </li>
-        </ul>
-
-        <form
-          action="https://formspree.io/f/xzdpbjwr"
-          method="POST"
-          class="space-y-4">
-
-          <!-- ASSUNTO -->
-          <input
-            type="hidden"
-            name="_subject"
-            value="CONTATO — SITE INCLUSIVR">
-
-          <!-- Nome -->
-          <input
-            type="text"
-            name="nome"
-            placeholder="Nome completo"
-            required
-            class="w-full border border-gray-300 rounded-lg
-                   px-4 py-3 focus:outline-none
-                   focus:ring-2 focus:ring-purple-500">
-
-          <!-- Email -->
-          <input
-            type="email"
-            name="email"
-            placeholder="Seu e-mail"
-            required
-            class="w-full border border-gray-300 rounded-lg
-                   px-4 py-3 focus:outline-none
-                   focus:ring-2 focus:ring-purple-500">
-
-          <!-- Telefone -->
-          <input
-            type="tel"
-            name="telefone"
-            placeholder="Telefone (opcional)"
-            class="w-full border border-gray-300 rounded-lg
-                   px-4 py-3 focus:outline-none
-                   focus:ring-2 focus:ring-purple-500">
-
-          <!-- Botão -->
-          <button
-            type="submit"
-            class="w-full bg-purple-600 text-white
-                   font-bold py-3 rounded-lg
-                   hover:bg-purple-700 transition">
-            Quero fazer parte ✨
-          </button>
-
-        </form>
-      </div>
-
-      <!-- INFO -->
-      <div class="flex flex-col justify-center items-start space-y-6">
-
-        <div>
-          <h4 class="text-xl font-bold text-purple-800 mb-2">
-            📧 E-mail
-          </h4>
-          <p class="text-gray-700">
-            contato@inclusivr.com.br
-          </p>
-        </div>
-
-        <div>
-          <h4 class="text-xl font-bold text-purple-800 mb-2">
-            📌 Redes Sociais
-          </h4>
-          <div class="flex space-x-4 text-lg">
-            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">Instagram</a>
-            <span>|</span>
-            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">TikTok</a>
-            <span>|</span>
-            <a href="#" class="text-purple-600 hover:text-purple-800 font-semibold">YouTube</a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="text-xl font-bold text-purple-800 mb-2">
-            💬 Quer conversar?
-          </h4>
-          <p class="text-gray-700">
-            Estamos abertos a parcerias, entrevistas, feedbacks e novas ideias.
-          </p>
-        </div>
-
-      </div>
-    </div>
+    <button type="button" class="wa-widget__fab" aria-label="Abrir atendimento pelo WhatsApp" aria-expanded="false" aria-controls="wa-panel" data-wa-toggle>
+      <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+    </button>
   </div>
-</section>
 
+  <script src="assets/vendor/qrcode/qrcode.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script type="module" src="assets/js/hero3d.js"></script>
+  <script type="module" src="assets/js/studio3d.js"></script>
 
-    <!-- Footer (simples) -->
-    <footer class="bg-white border-t mt-8">
-        <div class="container mx-auto px-6 py-6 text-center text-sm text-gray-500">
-            © <span id="year"></span> InclusiVR — Todos os direitos reservados.
-        </div>
-    </footer>
-
- 
+  <script>
+    window.googleTranslateElementInit = function () {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en,es,fr,de,it,ja,zh-CN,ko,ar,ru,hi',
+        autoDisplay: false
+      }, 'google_translate_element');
+      document.dispatchEvent(new Event('gt:ready'));
+    };
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 </body>
 </html>
