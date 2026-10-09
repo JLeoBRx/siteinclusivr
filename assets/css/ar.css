@@ -24,6 +24,7 @@
   padding: max(16px, env(safe-area-inset-top)) var(--gutter) 16px;
   max-width: calc(var(--container) + var(--gutter) * 2); width: 100%; margin: 0 auto;
 }
+.ar-topbar__libras { margin-left: auto; }
 .ar-back { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border-radius: 999px; border: 1px solid var(--border-2); font-size: 14px; font-weight: 500; color: var(--text-2); transition: color .2s, background-color .2s; }
 .ar-back:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
 

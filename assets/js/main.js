@@ -61,7 +61,7 @@
   }
   if (menuBtn && mobileNav) {
     menuBtn.addEventListener('click', () => setMenu(mobileNav.hidden));
-    $$('a', mobileNav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    $$('a, [data-libras-toggle]', mobileNav).forEach((a) => a.addEventListener('click', () => setMenu(false)));
     window.addEventListener('resize', () => { if (window.innerWidth > 1080) setMenu(false); });
   }
 

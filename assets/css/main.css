@@ -108,7 +108,7 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .btn:active { transform: translateY(1px) scale(0.99); }
 .btn--sm { --btn-h: 40px; padding: 0 18px; font-size: 14px; }
 .btn--lg { --btn-h: 54px; padding: 0 28px; font-size: 16px; }
-.btn--block { width: 100%; }
+.btn--block { width: 100%; white-space: normal; height: auto; min-height: var(--btn-h); padding-top: 10px; padding-bottom: 10px; text-align: center; line-height: 1.3; }
 
 .btn--primary {
   color: #fff;
@@ -283,6 +283,52 @@ fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .lang__menu button[aria-selected="true"] { color: #fff; background: rgba(21, 176, 255, 0.12); }
 .lang__menu small { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
 .lang__menu button[aria-selected="true"] small { color: var(--blue); }
+
+/* ---------- LIBRAS (VLibras) ---------- */
+.libras-btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 11px;
+  border-radius: 999px; border: 1px solid rgba(21, 176, 255, 0.45);
+  background: rgba(21, 176, 255, 0.1); color: #fff;
+  font-size: 13.5px; font-weight: 600; letter-spacing: .02em;
+  transition: background-color .2s, border-color .2s, transform .2s;
+}
+.libras-btn .icon { color: var(--blue); }
+.libras-btn:hover { background: rgba(21, 176, 255, 0.2); border-color: rgba(21, 176, 255, 0.75); }
+@media (max-width: 560px) {
+  .libras-btn { width: 40px; padding: 0; justify-content: center; }
+  .libras-btn span { display: none; }
+}
+@media (max-width: 380px) {
+  .segmented { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .lang__btn .icon--sm { display: none; }
+  .lang__btn { padding: 0 10px; gap: 6px; }
+  .brand { gap: 6px; }
+  .brand__mark { height: 30px; }
+  .brand__word { font-size: 18px; }
+  .site-header__actions { gap: 6px; }
+}
+.mobile-nav__libras { margin-top: 24px; }
+.mobile-nav__libras + .btn { margin-top: 10px; }
+
+/* o widget foi feito para o modelo de caixa padrão e imagens sem limite de largura */
+[vw], [vw] *, [vw] *::before, [vw] *::after, .vw-links, .vw-links * { box-sizing: content-box; }
+[vw] img, [vw] canvas, [vw] video, [vw] svg { max-width: none; }
+/* VLibras traduz português: fica oculto quando o Google Tradutor está ativo
+   e durante a câmera de realidade aumentada */
+html.translated-ltr [vw], html.translated-rtl [vw],
+html.translated-ltr [data-libras-toggle], html.translated-rtl [data-libras-toggle],
+body.is-ar-running [vw] { display: none !important; }
+
+.a11y-note {
+  margin-top: 48px; display: flex; gap: 16px; align-items: flex-start;
+  padding: 18px 20px; border-radius: var(--radius); border: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(21, 176, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+.a11y-note__icon { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; color: var(--blue); background: rgba(21, 176, 255, 0.12); }
+.a11y-note p { font-size: 14px; color: var(--text-2); }
+.a11y-note strong { color: var(--text); font-weight: 600; }
+.a11y-note__link { margin-left: 8px; font-size: 14px; font-weight: 600; color: var(--blue); }
+.a11y-note__link:hover { color: #7fd2ff; text-decoration: underline; }
 
 /* Google Translate: esconde a interface padrão */
 .gt-host { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); left: -9999px; }
@@ -511,6 +557,7 @@ font { background: transparent !important; box-shadow: none !important; }
 .step h3 { font-size: 18px; }
 .step p { margin-top: 4px; color: var(--text-2); font-size: 15px; }
 .step--cta { flex-direction: column; align-items: stretch; gap: 12px; padding-top: 10px; }
+.howto > *, .product > * { min-width: 0; }
 .step__note { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text-3); }
 
 @media (max-width: 900px) {
@@ -616,12 +663,12 @@ font { background: transparent !important; box-shadow: none !important; }
   .studio__controls .btn { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
-  .studio { border-radius: var(--radius-lg); }
+  .studio { border-radius: var(--radius-lg); grid-template-columns: minmax(0, 1fr); }
   .studio__viewport { aspect-ratio: 1 / 1.05; }
   .studio__controls { grid-template-columns: 1fr; padding: 20px; }
   .studio__hint { font-size: 11px; bottom: 12px; padding: 6px 10px; white-space: normal; text-align: center; width: max-content; max-width: calc(100% - 24px); }
   .hud-meta { display: none; }
-  .segmented { grid-template-columns: repeat(4, 1fr); }
+  .segmented { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .segmented span { font-size: 12px; padding: 9px 2px; }
 }
 
@@ -808,7 +855,7 @@ font { background: transparent !important; box-shadow: none !important; }
 .form-status.is-ok { color: var(--wa); }
 .form-status.is-error { color: #ff8aa2; }
 
-@media (max-width: 1000px) { .contact { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .contact { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 560px) {
   .form-grid { grid-template-columns: 1fr; }
   .contact-info { grid-template-columns: 1fr; }
@@ -850,7 +897,7 @@ font { background: transparent !important; box-shadow: none !important; }
 .social { margin-top: 20px; display: flex; gap: 10px; }
 .social a { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; border: 1px solid var(--border-2); color: var(--text-2); transition: color .2s, border-color .2s, background-color .2s; }
 .social a:hover { color: #fff; border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.05); }
-.site-footer__bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13.5px; color: var(--text-3); }
+.site-footer__bottom { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13.5px; color: var(--text-3); }
 @media (max-width: 900px) { .site-footer__grid { grid-template-columns: 1fr 1fr; } .site-footer__brand { grid-column: 1 / -1; } }
 @media (max-width: 480px) { .site-footer__grid { grid-template-columns: 1fr; } }
 

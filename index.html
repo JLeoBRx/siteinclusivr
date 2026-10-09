@@ -21,6 +21,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://vlibras.gov.br">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
 
@@ -120,6 +121,11 @@
       </nav>
 
       <div class="site-header__actions">
+        <button class="libras-btn" type="button" data-libras-toggle hidden aria-label="Traduzir o conteúdo para LIBRAS com o VLibras" title="Traduzir para LIBRAS (VLibras)">
+          <svg class="icon" aria-hidden="true"><use href="#i-hand"/></svg>
+          <span class="notranslate">LIBRAS</span>
+        </button>
+
         <div class="lang notranslate" data-lang>
           <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Selecionar idioma" data-lang-toggle>
             <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
@@ -163,6 +169,10 @@
       <a href="#empresa">Empresa</a>
       <a href="#jornada">Jornada</a>
       <a href="#contato">Contato</a>
+      <button type="button" class="btn btn--ghost btn--block mobile-nav__libras" data-libras-toggle hidden>
+        <svg class="icon" aria-hidden="true"><use href="#i-hand"/></svg>
+        Traduzir o site para <span class="notranslate">LIBRAS</span>
+      </button>
       <a href="https://wa.me/5516994002335" class="btn btn--wa btn--block" data-wa="geral" target="_blank" rel="noopener">
         <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
         Conversar no WhatsApp
@@ -863,6 +873,17 @@
         </div>
       </div>
 
+      <div class="a11y-note">
+        <span class="a11y-note__icon" aria-hidden="true"><svg class="icon"><use href="#i-hand"/></svg></span>
+        <p>
+          <strong>Acessível em <span class="notranslate">LIBRAS</span>.</strong>
+          Todo o conteúdo deste site pode ser traduzido para a Língua Brasileira de Sinais com o
+          <span class="notranslate">VLibras</span>, ferramenta pública e gratuita do Governo Federal.
+          <button type="button" class="a11y-note__link" data-libras-toggle hidden>Ativar agora</button>
+          <a href="https://www.gov.br/governodigital/pt-br/vlibras" target="_blank" rel="noopener" class="a11y-note__link">Saiba mais</a>
+        </p>
+      </div>
+
       <div class="site-footer__bottom">
         <p>© <span data-current-year>2026</span> <span class="notranslate">InclusiVR</span>. Todos os direitos reservados.</p>
         <p>Feito com tecnologia imersiva e acessibilidade em mente.</p>
@@ -907,6 +928,16 @@
       <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
     </button>
   </div>
+
+  <!-- VLibras: tradução automática para LIBRAS (Governo Federal) -->
+  <div vw class="enabled notranslate">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="assets/js/vlibras.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js" async onload="InclusiVRLibras.init()"></script>
 
   <script src="assets/vendor/qrcode/qrcode.js" defer></script>
   <script src="assets/js/main.js" defer></script>

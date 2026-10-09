@@ -11,6 +11,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://vlibras.gov.br">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
@@ -55,6 +56,10 @@
         <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"/></svg>
         <span>Voltar ao site</span>
       </a>
+      <button class="libras-btn ar-topbar__libras" type="button" data-libras-toggle hidden aria-label="Traduzir o conteúdo para LIBRAS com o VLibras" title="Traduzir para LIBRAS (VLibras)">
+        <svg class="icon" aria-hidden="true"><use href="#i-hand"/></svg>
+        <span class="notranslate">LIBRAS</span>
+      </button>
       <a href="index.html" class="brand notranslate" aria-label="InclusiVR">
         <img src="assets/img/logo-mark.webp" alt="" width="34" height="58" class="brand__mark">
         <span class="brand__word">Inclusi<span>VR</span></span>
@@ -213,6 +218,16 @@
       </div>
     </div>
   </div>
+
+  <!-- VLibras: tradução automática para LIBRAS (Governo Federal) -->
+  <div vw class="enabled notranslate">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="assets/js/vlibras.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js" async onload="InclusiVRLibras.init()"></script>
 
   <script src="assets/vendor/qrcode/qrcode.js" defer></script>
   <script type="module" src="assets/js/ar.js"></script>

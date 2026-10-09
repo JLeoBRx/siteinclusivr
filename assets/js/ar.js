@@ -67,6 +67,7 @@ async function start(mode) {
   $$('[data-start]').forEach((b) => { b.disabled = true; });
   ui.intro.hidden = true;
   ui.stage.hidden = false;
+  document.body.classList.add('is-ar-running');
   ui.loading.classList.remove('is-hidden');
   ui.loadingText.textContent = mode === 'image' ? 'Carregando o rastreador do Cartão AR…' : 'Carregando o rastreamento facial…';
   setStatus('Iniciando câmera…', false);
@@ -90,6 +91,7 @@ async function start(mode) {
     console.warn('[ar]', err);
     stopSession();
     ui.stage.hidden = true;
+    document.body.classList.remove('is-ar-running');
     ui.intro.hidden = false;
     const denied = await cameraDenied();
     if (denied) {
@@ -489,6 +491,7 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal
 $('[data-exit]').addEventListener('click', () => {
   stopSession();
   ui.stage.hidden = true;
+  document.body.classList.remove('is-ar-running');
   ui.intro.hidden = false;
 });
 ui.switchBtn.addEventListener('click', async () => {
